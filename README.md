@@ -1,4 +1,4 @@
-# Certified AWS Developer - Associate Notes
+# AWS Skills for Agents
 
 ### 2024 AWS Developer Associate Exam 
 
