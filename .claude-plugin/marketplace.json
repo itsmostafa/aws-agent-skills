@@ -1,0 +1,39 @@
+{
+  "name": "aws-agent-skills",
+  "owner": {
+    "name": "itsmostafa",
+    "email": "mostafaxcodes@gmail.com"
+  },
+  "metadata": {
+    "description": "Claude skills for AWS cloud engineering tasks",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "aws-agent-skills",
+      "description": "Collection of AWS engineering skills for IAM, Lambda, DynamoDB, S3, and 14 other core AWS services",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/iam",
+        "./skills/lambda",
+        "./skills/dynamodb",
+        "./skills/s3",
+        "./skills/api-gateway",
+        "./skills/ec2",
+        "./skills/ecs",
+        "./skills/eks",
+        "./skills/cloudformation",
+        "./skills/cloudwatch",
+        "./skills/rds",
+        "./skills/sqs",
+        "./skills/sns",
+        "./skills/cognito",
+        "./skills/step-functions",
+        "./skills/secrets-manager",
+        "./skills/eventbridge",
+        "./skills/bedrock"
+      ]
+    }
+  ]
+}

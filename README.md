@@ -1,85 +1,111 @@
-# AWS Skills for Agents
+# AWS Agent Skills
 
-### 2024 AWS Developer Associate Exam 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Claude Code](https://img.shields.io/badge/Claude-Code-blueviolet)](https://claude.ai/code)
 
-## Table of contents
+A Claude Code plugin providing comprehensive skills for AWS cloud engineering tasks. Covers 18 core AWS services including compute, storage, databases, security, messaging, and AI/ML.
 
-- AWS Fundamentals
-    - [IAM: Identity Access & Management](1-aws-fundamentals/iam.md)
-    - [EC2: Virtual Machines](1-aws-fundamentals/ec2.md)
-    - [Security Groups](1-aws-fundamentals/security-groups.md)
-    - [ELB: Elastic Load Balancers](1-aws-fundamentals/elb.md)
-    - [ASG: Auto Scaling Group](1-aws-fundamentals/asg.md)
-    - [EBS: Elastic Block Store](1-aws-fundamentals/ebs.md)
-    - [RDS: Relational Database Service](1-aws-fundamentals/rds.md)
-    - [Route 53](1-aws-fundamentals/route53.md)
-    - [ElastiCache](1-aws-fundamentals/elasticache.md)
-    - [VPC: Virtual Private Cloud](1-aws-fundamentals/vpc.md)
-    - [S3 Buckets](1-aws-fundamentals/s3.md)
+## Installation
 
-- AWS Deep Dive
-    - [CLI: Command Line Interface](2-aws-deep-dive/cli.md)
-    - [SDK: Software Development Kit](2-aws-deep-dive/sdk.md)
-    - [Elastic Beanstalk](2-aws-deep-dive/elastic-beanstalk.md)
-    - [CICD: Continuous Integration and Deployment](2-aws-deep-dive/cicd/cicd.md)
-        - [CodeCommit](2-aws-deep-dive/cicd/codecommit.md)
-        - [CodePipeline](2-aws-deep-dive/cicd/codepipeline.md)
-        - [CodeBuild](2-aws-deep-dive/cicd/codebuild.md)
-        - [CodeDeploy](2-aws-deep-dive/cicd/codedeploy.md)
-    - [CloudFormation](2-aws-deep-dive/cloudformation/cloudformation.md)
-    - [CloudWatch](2-aws-deep-dive/monitoring-and-audit/cloudwatch.md)
-    - [Integration and Messaging](2-aws-deep-dive/integration-and-messaging/0-intro.md)
-        - [SQS](2-aws-deep-dive/integration-and-messaging/1-sqs.md)
-        - [SNS](2-aws-deep-dive/integration-and-messaging/2-sns.md)
-        - [Kinesis](2-aws-deep-dive/integration-and-messaging/3-kinesis.md)
+### From Marketplace
 
-- [YAML](2-aws-deep-dive/yaml.md)
+```bash
+# Add the marketplace (if not already added)
+/plugin marketplace add <your-github-username>/aws-agent-skills
 
-- [AWS Serverless](3-aws-serverless/serverless.md)
-  - [Lambda](3-aws-serverless/lambda.md)
-  - [DynamoDB](3-aws-serverless/dynamodb.md)
-  - [API Gateway](3-aws-serverless/apigateway.md)
-  - [SAM](3-aws-serverless/sam.md)
-  - [Cognito](3-aws-serverless/cognito.md)
-  - [Step Functions](3-aws-serverless/stepfunctions.md)
-  - [AppSync](3-aws-serverless/appsync.md)
+# Install the plugin
+/plugin install aws-agent-skills
+```
 
-- Docker based AWS services
-  - ECS: Elastic Container Service
-  - Elastic Container Registry
-  - Fargate
+### From GitHub
 
-## Exam Preparation
+```bash
+/plugin install https://github.com/<your-github-username>/aws-agent-skills
+```
 
-- Exam details
-    - Two question types:
-        - Multiple Choice
-        - Multiple response
-    - Minimum passing score: 720/1000
-    - Domains:
-        - Deployment: CICD, Beanstalk, Serverless
-        - Security: each service deep-dive + dedicated section
-        - Development with AWS Services: Serverless, API, SDK, & CLI
-        - Refactoring: Understand all the AWS services for the best migration
-        - Monitoring and Troubleshooting: CloudWAtch, CloudTrail, X-Ray
+### Local Development
 
-    - Exam Guide:
-        - [Certified Developer - Associate Exam PDF](https://d1.awsstatic.com/training-and-certification/docs-dev-associate/AWS-Certified-Developer-Associate_Exam-Guide.pdf)
+```bash
+/plugin install ./path/to/aws-agent-skills
+```
 
-- EC2 + IAM Exam Checklist
-  * Know how to SSH into EC2 (and change .pem file permissions) 
-  * Know how to properly use security groups 
-  * Know the fundamental differences between private vs public vs elastic IP 
-  * Know how to use User Data to customize your instance at boot time 
-  * Know that you can build custom AMI to enhance your OS 
-  * EC2 instances are billed by the second and can be easily created and thrown away, welcome to the cloud! 
-  Maybe on Exam:
-  * Availability zones are in geographically isolated data centers
-  * IAM users are NOT defined on a per-region basis
-  * If you are getting a permission error exception when trying to SSH into your linux instance, then the key is missing chmod 400 permissions
-  * If you are getting a network timeout when trying to SSH into your EC2 instance, then your security groups are misconfigured
-  * Security groups reference IP address, CIDR block, Security group, but NOT DNS name
+## Available Skills
 
-# Contributors
+| Skill | Description |
+|-------|-------------|
+| **iam** | Identity and Access Management - users, roles, policies, permissions |
+| **lambda** | Serverless functions - deployment, triggers, debugging |
+| **dynamodb** | NoSQL database - table design, queries, indexes |
+| **s3** | Object storage - buckets, objects, security, lifecycle |
+| **api-gateway** | REST and HTTP APIs - integrations, authorization |
+| **ec2** | Virtual machines - instances, AMIs, networking |
+| **ecs** | Container orchestration - clusters, services, tasks |
+| **eks** | Kubernetes - clusters, node groups, IRSA |
+| **cloudformation** | Infrastructure as Code - templates, stacks, drift |
+| **cloudwatch** | Monitoring - logs, metrics, alarms, dashboards |
+| **rds** | Relational databases - instances, backups, replication |
+| **sqs** | Message queues - standard, FIFO, dead-letter queues |
+| **sns** | Notifications - topics, subscriptions, filtering |
+| **cognito** | User authentication - user pools, identity pools, OAuth |
+| **step-functions** | Workflow orchestration - state machines, error handling |
+| **secrets-manager** | Secret storage - rotation, versioning, RDS integration |
+| **eventbridge** | Event bus - rules, patterns, cross-account events |
+| **bedrock** | Foundation models - inference, RAG, custom models |
 
-Please feel free to contribute by making a Pull Request!
+## Usage Examples
+
+### IAM Policy Creation
+Ask Claude to help with IAM:
+- "Create an IAM policy for Lambda to access DynamoDB"
+- "Set up cross-account access for S3"
+- "Debug this access denied error"
+
+### Lambda Development
+- "Create a Python Lambda function triggered by S3"
+- "Debug my Lambda timeout issues"
+- "Set up Lambda with VPC access"
+
+### Infrastructure as Code
+- "Write a CloudFormation template for a serverless API"
+- "Create an ECS Fargate service with load balancer"
+- "Set up EventBridge rules for scheduled tasks"
+
+## Skill Structure
+
+Each skill contains:
+- `SKILL.md` - Core concepts, patterns, CLI reference, best practices, troubleshooting
+- Supplementary files - Deep dives into specific topics
+
+## Contributing
+
+1. Fork this repository
+2. Create a feature branch
+3. Add or update skills following the SKILL.md template
+4. Submit a pull request
+
+### SKILL.md Template
+
+```yaml
+---
+name: service-name
+description: Service description. Use when <trigger phrases>.
+---
+
+# AWS Service Name
+
+## Overview
+## Core Concepts
+## Common Patterns
+## CLI Reference
+## Best Practices
+## Troubleshooting
+## References
+```
+
+## Documentation Updates
+
+This repository includes an automated documentation tracking strategy. See `docs/update-doc-strategy.md` for details on keeping skills current with AWS changes.
+
+## License
+
+MIT License - see [LICENSE](LICENSE) for details.
