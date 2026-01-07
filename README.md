@@ -14,7 +14,9 @@ AWS Agent Skills equips Claude Code with deep expertise across 18 AWS domains, e
 
 ## Installation
 
-### From Marketplace
+### Claude Code
+
+#### From Marketplace
 
 ```bash
 # Add the marketplace
@@ -24,16 +26,28 @@ AWS Agent Skills equips Claude Code with deep expertise across 18 AWS domains, e
 /plugin install aws-agent-skills
 ```
 
-### From GitHub
+#### From GitHub
 
 ```bash
 /plugin install https://github.com/itsmostafa/aws-agent-skills
 ```
 
-### Local Development
+#### Local Development
 
 ```bash
 /plugin install ./path/to/aws-agent-skills
+```
+
+### Codex CLI
+
+```bash
+$skill-installer install https://github.com/itsmostafa/aws-agent-skills/<skill-name>
+```
+
+For example, to install the `rlhf` skill:
+
+```bash
+$skill-installer install https://github.com/itsmostafa/aws-agent-skills/rlhf
 ```
 
 ## Available Skills
