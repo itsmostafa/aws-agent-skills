@@ -2,31 +2,52 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude-Code-blueviolet)](https://claude.ai/code)
+![GitHub Stars](https://img.shields.io/github/stars/itsmostafa/llm-engineering-skills)
 
-A Claude Code plugin providing comprehensive skills for AWS cloud engineering tasks. Covers 18 core AWS services including compute, storage, databases, security, messaging, and AI/ML.
+Supercharge Claude Code with AWS cloud engineering skills across 18 core AWS services.
+
+## 🚀 Why AWS Agent Skills?
+
+Developing AWS solutions is complex spanning IAM, compute, storage, security, serverless, networking, and more.
+
+AWS Agent Skills equips Claude Code with deep expertise across 18 AWS domains, enabling automated cloud engineering support from IaC templates to debugging guidance and security best practices.
 
 ## Installation
 
-### From Marketplace
+### Claude Code
+
+#### From Marketplace
 
 ```bash
-# Add the marketplace (if not already added)
+# Add the marketplace
 /plugin marketplace add itsmostafa/aws-agent-skills
 
 # Install the plugin
 /plugin install aws-agent-skills
 ```
 
-### From GitHub
+#### From GitHub
 
 ```bash
 /plugin install https://github.com/itsmostafa/aws-agent-skills
 ```
 
-### Local Development
+#### Local Development
 
 ```bash
 /plugin install ./path/to/aws-agent-skills
+```
+
+### Codex CLI
+
+```bash
+$skill-installer install https://github.com/itsmostafa/aws-agent-skills/<skill-name>
+```
+
+For example, to install the `rlhf` skill:
+
+```bash
+$skill-installer install https://github.com/itsmostafa/aws-agent-skills/rlhf
 ```
 
 ## Available Skills
