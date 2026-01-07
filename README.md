@@ -11,7 +11,7 @@ A Claude Code plugin providing comprehensive skills for AWS cloud engineering ta
 
 ```bash
 # Add the marketplace (if not already added)
-/plugin marketplace add <your-github-username>/aws-agent-skills
+/plugin marketplace add itsmostafa/aws-agent-skills
 
 # Install the plugin
 /plugin install aws-agent-skills
@@ -20,7 +20,7 @@ A Claude Code plugin providing comprehensive skills for AWS cloud engineering ta
 ### From GitHub
 
 ```bash
-/plugin install https://github.com/<your-github-username>/aws-agent-skills
+/plugin install https://github.com/itsmostafa/aws-agent-skills
 ```
 
 ### Local Development
@@ -101,10 +101,6 @@ description: Service description. Use when <trigger phrases>.
 ## Troubleshooting
 ## References
 ```
-
-## Documentation Updates
-
-This repository includes an automated documentation tracking strategy. See `docs/update-doc-strategy.md` for details on keeping skills current with AWS changes.
 
 ## License
 
