@@ -50,3 +50,5 @@ venv/
 env/
 .env/
 *.egg-info/
+
+docs/
