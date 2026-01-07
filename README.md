@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude-Code-blueviolet)](https://claude.ai/code)
-![GitHub Stars](https://img.shields.io/github/stars/itsmostafa/llm-engineering-skills)
+![GitHub Stars](https://img.shields.io/github/stars/itsmostafa/aws-agent-skills)
 
 Supercharge Claude Code with AWS cloud engineering skills across 18 core AWS services.
 
