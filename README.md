@@ -15,7 +15,7 @@ AWS Agent Skills equips Claude Code (and Codex) with deep expertise across 18 AW
 
 Automatically checks AWS documentation for updates on a weekly basis to ensure skills stay current with AWS service changes.
 
-## Why not just use an MCP?
+### Why not just use an MCP?
 
 AWS MCP is great for live docs and API calls, but AWS Agent Skills is designed for reasoning first.
 It gives AI Agents a curated, LLM-optimized AWS knowledge base with real-world patterns, edge cases, and best practices, without streaming large docs or schemas.
