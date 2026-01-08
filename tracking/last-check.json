@@ -1,0 +1,23 @@
+{
+  "last_check": "2026-01-08T18:01:00.668454+00:00",
+  "services_checked": [
+    "lambda",
+    "dynamodb",
+    "s3",
+    "iam",
+    "api-gateway",
+    "ec2",
+    "ecs",
+    "eks",
+    "cloudwatch",
+    "rds",
+    "sqs",
+    "sns",
+    "step-functions",
+    "secrets-manager",
+    "cloudformation",
+    "cognito",
+    "eventbridge",
+    "bedrock"
+  ]
+}
