@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Claude Code](https://img.shields.io/badge/Claude-Code-blueviolet)](https://claude.ai/code)
+![Last Commit](https://img.shields.io/github/last-commit/itsmostafa/aws-agent-skills)
 ![GitHub Stars](https://img.shields.io/github/stars/itsmostafa/aws-agent-skills)
 
 Supercharge Claude Code with AWS cloud engineering skills across 18 core AWS services.
@@ -11,6 +12,8 @@ Supercharge Claude Code with AWS cloud engineering skills across 18 core AWS ser
 Developing AWS solutions is complex spanning IAM, compute, storage, security, serverless, networking, and more.
 
 AWS Agent Skills equips Claude Code with deep expertise across 18 AWS domains, enabling automated cloud engineering support from IaC templates to debugging guidance and security best practices.
+
+Automatically checks AWS documentation for updates on a weekly basis to ensure skills stay current with AWS service changes.
 
 ## Installation
 
@@ -96,6 +99,8 @@ Ask Claude to help with IAM:
 Each skill contains:
 - `SKILL.md` - Core concepts, patterns, CLI reference, best practices, troubleshooting
 - Supplementary files - Deep dives into specific topics
+
+Skills include metadata showing when content was last updated, so you always know how current the information is.
 
 ## Contributing
 
