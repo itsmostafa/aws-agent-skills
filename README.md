@@ -11,9 +11,15 @@ Supercharge Claude Code with AWS cloud engineering skills across 18 core AWS ser
 
 Developing AWS solutions is complex spanning IAM, compute, storage, security, serverless, networking, and more.
 
-AWS Agent Skills equips Claude Code with deep expertise across 18 AWS domains, enabling automated cloud engineering support from IaC templates to debugging guidance and security best practices.
+AWS Agent Skills equips Claude Code (and Codex) with deep expertise across 18 AWS domains, enabling automated cloud engineering support from IaC templates to debugging guidance and security best practices.
 
 Automatically checks AWS documentation for updates on a weekly basis to ensure skills stay current with AWS service changes.
+
+## Why not just use an MCP?
+
+AWS MCP is great for live docs and API calls, but AWS Agent Skills is designed for reasoning first.
+It gives AI Agents a curated, LLM-optimized AWS knowledge base with real-world patterns, edge cases, and best practices, without streaming large docs or schemas.
+Because the skills are local and pre compressed, it is far more token efficient, keeps the context window small and predictable, and avoids MCP infrastructure, latency, and expanded credential exposure.
 
 ## Installation
 
