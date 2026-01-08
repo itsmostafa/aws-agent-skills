@@ -1,6 +1,8 @@
 ---
 name: sns
 description: AWS SNS notification service for pub/sub messaging. Use when creating topics, managing subscriptions, configuring message filtering, sending notifications, or setting up mobile push.
+last_updated: "2026-01-07"
+doc_source: https://docs.aws.amazon.com/sns/latest/dg/
 ---
 
 # AWS SNS

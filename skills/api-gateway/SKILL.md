@@ -1,6 +1,8 @@
 ---
 name: api-gateway
 description: AWS API Gateway for REST and HTTP API management. Use when creating APIs, configuring integrations, setting up authorization, managing stages, implementing rate limiting, or troubleshooting API issues.
+last_updated: "2026-01-07"
+doc_source: https://docs.aws.amazon.com/apigateway/latest/developerguide/
 ---
 
 # AWS API Gateway

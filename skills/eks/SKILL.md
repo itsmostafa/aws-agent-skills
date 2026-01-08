@@ -1,6 +1,8 @@
 ---
 name: eks
 description: AWS EKS Kubernetes management for clusters, node groups, and workloads. Use when creating clusters, configuring IRSA, managing node groups, deploying applications, or integrating with AWS services.
+last_updated: "2026-01-07"
+doc_source: https://docs.aws.amazon.com/eks/latest/userguide/
 ---
 
 # AWS EKS
