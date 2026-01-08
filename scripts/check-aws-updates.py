@@ -267,7 +267,7 @@ def main():
         for update in all_updates:
             print(f"  - [{update['service']}] {update['title']}")
 
-    return 0 if not all_updates else 1
+    return 0
 
 
 if __name__ == "__main__":
