@@ -105,11 +105,12 @@ def load_last_check(tracking_dir: Path) -> dict:
     if last_check_file.exists():
         with open(last_check_file) as f:
             return json.load(f)
-    return {"last_check": "1970-01-01T00:00:00", "services_checked": []}
+    return {"last_check": "1970-01-01T00:00:00+00:00", "services_checked": []}
 
 
 def save_last_check(tracking_dir: Path, data: dict) -> None:
     """Save the current check timestamp to tracking file."""
+    tracking_dir.mkdir(parents=True, exist_ok=True)
     last_check_file = tracking_dir / "last-check.json"
     with open(last_check_file, "w") as f:
         json.dump(data, f, indent=2)
@@ -217,7 +218,7 @@ def main():
 
     # Load last check timestamp
     last_check_data = load_last_check(tracking_dir)
-    last_check_str = last_check_data.get("last_check", "1970-01-01T00:00:00")
+    last_check_str = last_check_data.get("last_check", "1970-01-01T00:00:00+00:00")
     since = datetime.fromisoformat(last_check_str.replace("Z", "+00:00"))
 
     print(f"Checking for updates since: {since.isoformat()}")
