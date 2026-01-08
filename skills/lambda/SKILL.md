@@ -1,6 +1,8 @@
 ---
 name: lambda
 description: AWS Lambda serverless functions for event-driven compute. Use when creating functions, configuring triggers, debugging invocations, optimizing cold starts, setting up event source mappings, or managing layers.
+last_updated: "2026-01-07"
+doc_source: https://docs.aws.amazon.com/lambda/latest/dg/
 ---
 
 # AWS Lambda

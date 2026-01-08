@@ -1,6 +1,8 @@
 ---
 name: sqs
 description: AWS SQS message queue service for decoupled architectures. Use when creating queues, configuring dead-letter queues, managing visibility timeouts, implementing FIFO ordering, or integrating with Lambda.
+last_updated: "2026-01-07"
+doc_source: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/
 ---
 
 # AWS SQS

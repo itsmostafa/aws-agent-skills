@@ -1,6 +1,8 @@
 ---
 name: rds
 description: AWS RDS relational database service for managed databases. Use when provisioning databases, configuring backups, managing replicas, troubleshooting connectivity, or optimizing performance.
+last_updated: "2026-01-07"
+doc_source: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
 ---
 
 # AWS RDS

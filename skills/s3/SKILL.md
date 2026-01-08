@@ -1,6 +1,8 @@
 ---
 name: s3
 description: AWS S3 object storage for bucket management, object operations, and access control. Use when creating buckets, uploading files, configuring lifecycle policies, setting up static websites, managing permissions, or implementing cross-region replication.
+last_updated: "2026-01-07"
+doc_source: https://docs.aws.amazon.com/AmazonS3/latest/userguide/
 ---
 
 # AWS S3

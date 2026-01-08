@@ -1,6 +1,8 @@
 ---
 name: step-functions
 description: AWS Step Functions workflow orchestration with state machines. Use when designing workflows, implementing error handling, configuring parallel execution, integrating with AWS services, or debugging executions.
+last_updated: "2026-01-07"
+doc_source: https://docs.aws.amazon.com/step-functions/latest/dg/
 ---
 
 # AWS Step Functions
