@@ -15,6 +15,7 @@ on:
 permissions:
   contents: write
   issues: write
+  pull-requests: write
 
 jobs:
   check-updates:
@@ -43,13 +44,37 @@ jobs:
         id: check
         run: python scripts/check-aws-updates.py
 
-      - name: Commit tracking updates
+      - name: Commit tracking updates via PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add tracking/
-          git diff --staged --quiet || git commit -m "chore: update tracking data"
-          git push
+
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No tracking changes to commit"
+            exit 0
+          fi
+
+          # Create a unique branch for the tracking update
+          BRANCH_NAME="chore/update-tracking-$(date +%Y%m%d-%H%M%S)"
+          git checkout -b "$BRANCH_NAME"
+          git commit -m "chore: update tracking data"
+          git push -u origin "$BRANCH_NAME"
+
+          # Create a PR and auto-merge it
+          PR_URL=$(gh pr create \
+            --title "chore: update AWS doc check tracking data" \
+            --body "Automated update of tracking data from weekly AWS documentation check." \
+            --base main \
+            --head "$BRANCH_NAME")
+
+          echo "Created PR: $PR_URL"
+
+          # Enable auto-merge if the repo allows it
+          gh pr merge "$PR_URL" --auto --squash || echo "Auto-merge not enabled or not allowed"
 
       - name: Create GitHub issues for updates
         if: steps.check.outputs.updates_found == 'true'
