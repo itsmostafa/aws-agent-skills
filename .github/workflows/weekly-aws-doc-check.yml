@@ -76,11 +76,101 @@ jobs:
           # Enable auto-merge if the repo allows it
           gh pr merge "$PR_URL" --auto --squash || echo "Auto-merge not enabled or not allowed"
 
-      - name: Create GitHub issues for updates
+      - name: Generate docs markdown for updates
+        if: steps.check.outputs.updates_found == 'true'
+        id: gen_docs
+        run: |
+          python - << 'PY'
+          import json, os
+          from pathlib import Path
+          from datetime import datetime, timezone
+          updates_file = Path('tracking/pending-updates.json')
+          if not updates_file.exists():
+              raise SystemExit(0)
+          updates = json.loads(updates_file.read_text())
+          if not updates:
+              raise SystemExit(0)
+          # Group by service
+          by_service = {}
+          for u in updates:
+              by_service.setdefault(u.get('service','unknown'), []).append(u)
+          now = datetime.now(timezone.utc)
+          date_str = now.strftime('%Y-%m-%d')
+          docs_dir = Path('docs'); docs_dir.mkdir(parents=True, exist_ok=True)
+          out = docs_dir / f'aws-updates-{date_str}.md'
+          if out.exists():
+              out = docs_dir / f'aws-updates-{now.strftime("%Y-%m-%d-%H%M%S")}.md'
+          lines = []
+          lines.append(f'# AWS documentation updates - {date_str}')
+          lines.append('')
+          lines.append(f'Total updates: {len(updates)}')
+          lines.append('')
+          for service in sorted(by_service.keys()):
+              lines.append(f'## {service}')
+              lines.append('')
+              for u in by_service[service]:
+                  title = u.get('title','(no title)')
+                  link = u.get('link','')
+                  pub = u.get('published','')
+                  lines.append(f'- [{title}]({link}) — published {pub}')
+                  desc = (u.get("description") or '').strip()
+                  if desc:
+                      one_line = ' '.join(desc.splitlines()).strip()
+                      if one_line:
+                          lines.append(f'  ')
+                          lines.append(f'  {one_line}')
+                          lines.append('')
+              lines.append('')
+          out.write_text("\n".join(lines))
+          print(f'Wrote {out}')
+          gh_out = os.environ.get('GITHUB_OUTPUT')
+          if gh_out:
+              with open(gh_out,'a') as f:
+                  f.write(f'doc_path={out.as_posix()}\n')
+                  f.write(f'doc_date={date_str}\n')
+                  f.write(f'doc_update_count={len(updates)}\n')
+          PY
+
+      - name: Ensure labels exist for docs PR
         if: steps.check.outputs.updates_found == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/generate-update-issues.py
+        run: |
+          gh label create documentation --description "Documentation updates" --color FFFFFF || true
+          gh label create aws-update --description "AWS documentation or feature update" --color 1D76DB || true
+
+      - name: Create PR for docs update
+        if: steps.check.outputs.updates_found == 'true'
+        id: docs_pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DOC_PATH="${{ steps.gen_docs.outputs.doc_path }}"
+          DOC_DATE="${{ steps.gen_docs.outputs.doc_date }}"
+          UPDATE_COUNT="${{ steps.gen_docs.outputs.doc_update_count }}"
+          if [ -z "$DOC_PATH" ] || [ ! -f "$DOC_PATH" ]; then
+            echo "No docs file generated; skipping PR."
+            exit 0
+          fi
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          BRANCH_NAME="docs/aws-updates-${DOC_DATE}-$(date +%H%M%S)"
+          git checkout -b "$BRANCH_NAME"
+          git add "$DOC_PATH"
+          if git diff --staged --quiet; then
+            echo "No docs changes to commit"
+            exit 0
+          fi
+          git commit -m "docs: add AWS updates for ${DOC_DATE} (${UPDATE_COUNT})"
+          git push -u origin "$BRANCH_NAME"
+          PR_URL=$(gh pr create \
+            --title "docs: AWS updates for ${DOC_DATE} (${UPDATE_COUNT})" \
+            --body "Automated summary of AWS documentation updates for ${DOC_DATE}. The new file is ${DOC_PATH}." \
+            --base main \
+            --head "$BRANCH_NAME" \
+            --label "documentation,aws-update")
+          echo "Created PR: $PR_URL"
+          echo "pr_url=${PR_URL}" >> "$GITHUB_OUTPUT"
 
       - name: Summary
         run: |
@@ -88,7 +178,10 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           if [ "${{ steps.check.outputs.updates_found }}" == "true" ]; then
             echo "Found ${{ steps.check.outputs.update_count }} significant updates." >> $GITHUB_STEP_SUMMARY
-            echo "GitHub issues have been created for review." >> $GITHUB_STEP_SUMMARY
+            echo "A pull request with a docs summary has been opened." >> $GITHUB_STEP_SUMMARY
+            if [ -n "${{ steps.docs_pr.outputs.pr_url }}" ]; then
+              echo "PR: ${{ steps.docs_pr.outputs.pr_url }}" >> $GITHUB_STEP_SUMMARY
+            fi
           else
             echo "No significant updates found." >> $GITHUB_STEP_SUMMARY
           fi
