@@ -59,6 +59,15 @@ For example, to install the `rlhf` skill:
 $skill-installer install https://github.com/itsmostafa/aws-agent-skills/rlhf
 ```
 
+### sk
+
+Install via [sk](https://github.com/803/skills-supply), the universal package manager for AI agent skills (supports Claude, Codex, OpenCode, etc...).
+
+```bash
+sk pkg add claude-plugin aws-agent-skills@itsmostafa/aws-agent-skills
+sk sync
+```
+
 ## Available Skills
 
 | Skill | Description |
