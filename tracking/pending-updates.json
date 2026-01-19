@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "service": "eventbridge",
+    "title": "Amazon Connect now provides agent screen recording status tracking",
+    "description": "<p>Amazon Connect now offers customers the ability to view status of agent screen recordings in near real time in CloudWatch using Amazon EventBridge. With screen recording, supervisors can identify areas for agent coaching (e.g., non-compliance with business processes) by not only listening to customer calls or reviewing chat transcripts, but also watching agents\u2019 actions while handling a contact (i.e., a voice call, chat and task). Using Amazon EventBridge, customers can see status of each age",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-connect-agent-screen-recording-status-tracking",
+    "published": "2026-01-12T15:00:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  }
+]
