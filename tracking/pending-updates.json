@@ -1,1 +1,92 @@
-[]
+[
+  {
+    "service": "cloudformation",
+    "title": "AWS Config launches 13 new managed rules",
+    "description": "<p>AWS Config announces launch of an additional 13 managed Config rules for various use cases such as security, durability, and operations. You can now search, discover, enable and manage these additional rules directly from AWS Config and govern more use cases for your AWS environment.<br /> <br /> With this launch, you can now enable these controls across your account or across your organization. For example, you can assess your security posture across Amazon Cognito User pools, Amazon EBS Sna",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/aws-config-launches-new-rules/",
+    "published": "2026-01-22T18:06:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "cognito",
+    "title": "AWS Config launches 13 new managed rules",
+    "description": "<p>AWS Config announces launch of an additional 13 managed Config rules for various use cases such as security, durability, and operations. You can now search, discover, enable and manage these additional rules directly from AWS Config and govern more use cases for your AWS environment.<br /> <br /> With this launch, you can now enable these controls across your account or across your organization. For example, you can assess your security posture across Amazon Cognito User pools, Amazon EBS Sna",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/aws-config-launches-new-rules/",
+    "published": "2026-01-22T18:06:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "bedrock",
+    "title": "Amazon Neptune Analytics is now available in 7 additional regions",
+    "description": "<p><a href=\"https://docs.aws.amazon.com/neptune-analytics/latest/userguide/what-is-neptune-analytics.html\" target=\"_blank\">Amazon Neptune Analytics</a> is now available in US West (N. California), Asia Pacific (Seoul), Asia Pacific (Osaka), Asia Pacific (Hong Kong), Europe (Stockholm), Europe (Paris), and South America (S\u00e3o Paulo) regions. You can now create and manage Neptune Analytics graphs in these new regions and run advanced graph analytics.<br /> <br /> Amazon Neptune is a serverless grap",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-neptune-analytics-generally-available-additional-regions",
+    "published": "2026-01-22T18:00:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "cognito",
+    "title": "AWS expands Resource Control Policies support for Cognito and CloudWatch Logs",
+    "description": "<p>AWS Resource Control Policies (RCPs) now provide support for <a href=\"https://aws.amazon.com/pm/cognito/?trk=de90528c-2450-48d7-9981-bc556d44c9ab&amp;sc_channel=ps&amp;trk=de90528c-2450-48d7-9981-bc556d44c9ab&amp;sc_channel=ps&amp;ef_id=EAIaIQobChMI1oPdpd-JkgMVEh-tBh0iWzpHEAAYASAAEgLl7_D_BwE:G:s&amp;s_kwcid=AL!4422!3!652240143559!e!!g!!cognito!19878797452!155825919588&amp;gad_campaignid=19878797452&amp;gbraid=0AAAAADjHtp-6asfTXR8BCPoEoERBRak--&amp;gclid=EAIaIQobChMI1oPdpd-JkgMVEh-tBh0iWzpHEAA",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/aws-expands-resource-control-policies",
+    "published": "2026-01-22T17:00:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "bedrock",
+    "title": "Amazon Bedrock AgentCore Browser now supports custom browser extensions",
+    "description": "<p>Amazon Bedrock AgentCore Browser now supports custom Chrome browser extensions, enabling automation for complex workflows that standard browser automation cannot handle alone. This enhancement builds upon AgentCore\u2019s existing secure browser features, allowing users to upload Chrome-compatible extensions to S3 and automatically install them during browser sessions. The feature serves enterprise developers, automation engineers, and organizations&nbsp;across industries requiring specialized bro",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-bedrock-agentcore-browser-custom-extensions",
+    "published": "2026-01-22T17:00:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "bedrock",
+    "title": "Amazon Bedrock Reserved Tier available now for Claude Sonnet 4.5 in AWS GovCloud (US-West)",
+    "description": "<p>Today, Amazon Bedrock introduces the expansion of the Reserved service tier designed for workloads requiring predictable performance and guaranteed tokens-per-minute capacity. The Reserved tier provides the ability to reserve prioritized compute capacity, keeping service levels predictable for your mission critical applications. It also includes the flexibility to allocate different input and output tokens-per-minute capacities to match the exact requirements of your workload and control cost",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-bedrock-reserved-tier-for-claude-sonnet-in-govcloud/",
+    "published": "2026-01-21T17:02:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "eventbridge",
+    "title": "Instance Scheduler on AWS adds enhanced scaling, reliability, and event-driven automation",
+    "description": "<p>Today AWS announced enhanced scheduling orchestration to track AWS tagging events, self-service troubleshooting via informational resource tags, an optional EC2 insufficient-capacity retry flow using alternate instance types, and automatic creation of a dedicated EventBridge bus for scheduling events for Instance Scheduler (IS) on AWS. IS\u2019s orchestration and fan-out mechanisms have been re-architected to enable customers to track AWS tagging events, allowing the product to more intelligently ",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/instance-scheduler-adds-enhanced-scaling/",
+    "published": "2026-01-21T15:48:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "cloudformation",
+    "title": "Amazon CloudWatch Database Insights on-demand analysis now available in four additional Regions",
+    "description": "<p>Amazon CloudWatch Database Insights expands the availability of its on-demand analysis experience to four additional Regions - Asia Pacific (New Zealand), Asia Pacific (Taipei), Asia Pacific (Thailand), and Mexico (Central). CloudWatch Database Insights is a monitoring and diagnostics solution that helps database administrators and developers optimize database performance by providing comprehensive visibility into database metrics, query analysis, and resource utilization patterns. This featu",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-cloudwatch-database-insights-on-demand-analysis-available-additional-regions",
+    "published": "2026-01-20T14:00:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "bedrock",
+    "title": "Amazon Bedrock Reserved Tier available now for Claude Opus 4.5 and Haiku 4.5",
+    "description": "<p>Today, Amazon Bedrock announces the expansion of the Reserved service tier designed for workloads requiring predictable performance and guaranteed tokens-per-minute capacity. The Reserved tier provides the ability to reserve prioritized compute capacity, keeping service levels predictable for your mission critical applications. It also includes the flexibility to allocate different input and output tokens-per-minute capacities to match the exact requirements of your workload and control cost.",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-bedrock-reserved-tier-claude-opus-haiku/",
+    "published": "2026-01-16T18:30:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "eventbridge",
+    "title": "Amazon Connect now provides agent screen recording status tracking",
+    "description": "<p>Amazon Connect now offers customers the ability to view status of agent screen recordings in near real time in CloudWatch using Amazon EventBridge. With screen recording, supervisors can identify areas for agent coaching (e.g., non-compliance with business processes) by not only listening to customer calls or reviewing chat transcripts, but also watching agents\u2019 actions while handling a contact (i.e., a voice call, chat and task). Using Amazon EventBridge, customers can see status of each age",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-connect-agent-screen-recording-status-tracking",
+    "published": "2026-01-12T15:00:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  }
+]
