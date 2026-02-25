@@ -1,49 +1,12 @@
 ---
 name: rds
-description: AWS RDS relational database service for managed databases. Use when provisioning databases, configuring backups, managing replicas, troubleshooting connectivity, or optimizing performance.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
+description: AWS RDS relational database service for managed DB instances. Use when provisioning databases, configuring Multi-AZ deployments, creating read replicas, managing parameter groups, taking RDS snapshots, troubleshooting connectivity, or optimizing query performance.
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/
 ---
 
 # AWS RDS
-
-Amazon Relational Database Service (RDS) provides managed relational databases including MySQL, PostgreSQL, MariaDB, Oracle, SQL Server, and Aurora. RDS handles provisioning, patching, backups, and failover.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-
-## Core Concepts
-
-### DB Instance Classes
-
-| Category | Example | Use Case |
-|----------|---------|----------|
-| Standard | db.m6g.large | General purpose |
-| Memory Optimized | db.r6g.large | High memory workloads |
-| Burstable | db.t3.medium | Variable workloads, dev/test |
-
-### Storage Types
-
-| Type | IOPS | Use Case |
-|------|------|----------|
-| gp3 | 3,000-16,000 | Most workloads |
-| io1/io2 | Up to 256,000 | High-performance OLTP |
-| magnetic | N/A | Legacy, avoid |
-
-### Multi-AZ Deployments
-
-- **Multi-AZ Instance**: Synchronous standby in different AZ
-- **Multi-AZ Cluster**: One writer, two reader instances (Aurora-like)
-
-### Read Replicas
-
-Asynchronous copies for read scaling. Can be cross-region.
 
 ## Common Patterns
 
@@ -86,6 +49,15 @@ aws rds create-db-instance \
   --backup-retention-period 7 \
   --storage-encrypted \
   --no-publicly-accessible
+
+# Verify: wait for instance to become available
+aws rds wait db-instance-available \
+  --db-instance-identifier my-postgres
+
+# Confirm endpoint
+aws rds describe-db-instances \
+  --db-instance-identifier my-postgres \
+  --query "DBInstances[0].Endpoint"
 ```
 
 **boto3:**

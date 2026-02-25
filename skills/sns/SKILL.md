@@ -1,28 +1,12 @@
 ---
 name: sns
-description: AWS SNS notification service for pub/sub messaging. Use when creating topics, managing subscriptions, configuring message filtering, sending notifications, or setting up mobile push.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/sns/latest/dg/
+description: AWS SNS publish-subscribe notification service for push notifications, SMS alerts, and event fan-out. Use when creating topics, managing subscriptions, configuring message filtering, sending notifications, setting up mobile push, or implementing fan-out patterns with SQS.
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/sns/latest/dg/
 ---
 
 # AWS SNS
-
-Amazon Simple Notification Service (SNS) is a fully managed pub/sub messaging service for application-to-application (A2A) and application-to-person (A2P) communication.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-
-## Core Concepts
-
-### Topics
-
-Named channels for publishing messages. Publishers send to topics, subscribers receive from topics.
 
 ### Topic Types
 
@@ -78,6 +62,10 @@ aws sns subscribe \
   --topic-arn arn:aws:sns:us-east-1:123456789012:my-topic \
   --protocol email \
   --notification-endpoint user@example.com
+
+# Verify subscriptions
+aws sns list-subscriptions-by-topic \
+  --topic-arn arn:aws:sns:us-east-1:123456789012:my-topic
 ```
 
 **boto3:**

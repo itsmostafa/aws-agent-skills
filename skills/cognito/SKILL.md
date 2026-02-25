@@ -1,48 +1,12 @@
 ---
 name: cognito
 description: AWS Cognito user authentication and authorization service. Use when setting up user pools, configuring identity pools, implementing OAuth flows, managing user attributes, or integrating with social identity providers.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/cognito/latest/developerguide/
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/cognito/latest/developerguide/
 ---
 
 # AWS Cognito
-
-Amazon Cognito provides authentication, authorization, and user management for web and mobile applications. Users can sign in directly or through federated identity providers.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-
-## Core Concepts
-
-### User Pools
-
-User directory for sign-up and sign-in. Provides:
-- User registration and authentication
-- OAuth 2.0 / OpenID Connect tokens
-- MFA and password policies
-- Customizable UI and flows
-
-### Identity Pools (Federated Identities)
-
-Provide temporary AWS credentials to access AWS services. Users can be:
-- Cognito User Pool users
-- Social identity (Google, Facebook, Apple)
-- SAML/OIDC enterprise identity
-- Anonymous guests
-
-### Tokens
-
-| Token | Purpose | Lifetime |
-|-------|---------|----------|
-| **ID Token** | User identity claims | 1 hour |
-| **Access Token** | API authorization | 1 hour |
-| **Refresh Token** | Get new ID/Access tokens | 30 days (configurable) |
 
 ## Common Patterns
 
@@ -73,6 +37,9 @@ aws cognito-idp create-user-pool \
 ### Create App Client
 
 ```bash
+# Verify user pool created
+aws cognito-idp describe-user-pool --user-pool-id us-east-1_abc123 --query UserPool.Status
+
 aws cognito-idp create-user-pool-client \
   --user-pool-id us-east-1_abc123 \
   --client-name my-web-app \

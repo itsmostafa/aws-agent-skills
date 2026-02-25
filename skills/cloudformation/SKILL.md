@@ -1,45 +1,12 @@
 ---
 name: cloudformation
 description: AWS CloudFormation infrastructure as code for stack management. Use when writing templates, deploying stacks, managing drift, troubleshooting deployments, or organizing infrastructure with nested stacks.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/
 ---
 
 # AWS CloudFormation
-
-AWS CloudFormation provisions and manages AWS resources using templates. Define infrastructure as code, version control it, and deploy consistently across environments.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-
-## Core Concepts
-
-### Templates
-
-JSON or YAML files defining AWS resources. Key sections:
-- **Parameters**: Input values
-- **Mappings**: Static lookup tables
-- **Conditions**: Conditional resource creation
-- **Resources**: AWS resources (required)
-- **Outputs**: Return values
-
-### Stacks
-
-Collection of resources managed as a single unit. Created from templates.
-
-### Change Sets
-
-Preview changes before executing updates.
-
-### Stack Sets
-
-Deploy stacks across multiple accounts and regions.
 
 ## Common Patterns
 
@@ -87,11 +54,18 @@ Outputs:
 
 ```bash
 # Create stack
+# Validate template first
+aws cloudformation validate-template --template-body file://template.yaml
+
 aws cloudformation create-stack \
   --stack-name my-stack \
   --template-body file://template.yaml \
   --parameters ParameterKey=Environment,ParameterValue=prod \
   --capabilities CAPABILITY_IAM
+
+# Wait and verify
+aws cloudformation wait stack-create-complete --stack-name my-stack
+aws cloudformation describe-stacks --stack-name my-stack --query "Stacks[0].StackStatus"
 
 # Wait for completion
 aws cloudformation wait stack-create-complete --stack-name my-stack

@@ -1,48 +1,14 @@
 ---
 name: bedrock
-description: AWS Bedrock foundation models for generative AI. Use when invoking foundation models, building AI applications, creating embeddings, configuring model access, or implementing RAG patterns.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/bedrock/latest/userguide/
+description: AWS Bedrock foundation models and generative AI via boto3 bedrock-runtime. Use when invoking models like Claude or Amazon Titan, creating text embeddings, configuring model access and knowledge bases, implementing RAG patterns, or calling the InvokeModel API.
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/bedrock/latest/userguide/
 ---
 
 # AWS Bedrock
 
-Amazon Bedrock provides access to foundation models (FMs) from AI companies through a unified API. Build generative AI applications with text generation, embeddings, and image generation capabilities.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-
-## Core Concepts
-
-### Foundation Models
-
-Pre-trained models available through Bedrock:
-- **Claude** (Anthropic): Text generation, analysis, coding
-- **Titan** (Amazon): Text, embeddings, image generation
-- **Llama** (Meta): Open-weight text generation
-- **Mistral**: Efficient text generation
-- **Stable Diffusion** (Stability AI): Image generation
-
-### Model Access
-
-Models must be enabled in your account before use:
-- Request access in Bedrock console
-- Some models require acceptance of EULAs
-- Access is region-specific
-
-### Inference Types
-
-| Type | Use Case | Pricing |
-|------|----------|---------|
-| **On-Demand** | Variable workloads | Per token |
-| **Provisioned Throughput** | Consistent high-volume | Hourly commitment |
-| **Batch Inference** | Async large-scale | Discounted per token |
+Models must be enabled in your account before use (request access in Bedrock console, region-specific). Access is via `bedrock-runtime` for inference and `bedrock` for control plane operations.
 
 ## Common Patterns
 
@@ -66,6 +32,11 @@ aws bedrock-runtime invoke-model \
   response.json
 
 cat response.json | jq -r '.content[0].text'
+
+# Verify model access first
+aws bedrock get-foundation-model \
+  --model-identifier anthropic.claude-3-sonnet-20240229-v1:0 \
+  --query 'modelDetails.modelId'
 ```
 
 **boto3:**

@@ -1,22 +1,12 @@
 ---
 name: dynamodb
-description: AWS DynamoDB NoSQL database for scalable data storage. Use when designing table schemas, writing queries, configuring indexes, managing capacity, implementing single-table design, or troubleshooting performance issues.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/
+description: AWS DynamoDB NoSQL database for scalable data storage. Use when designing partition key and sort key schemas, writing queries, configuring GSI and LSI indexes, managing read/write capacity units or on-demand mode, implementing single-table design, or troubleshooting performance issues.
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/
 ---
 
 # AWS DynamoDB
-
-Amazon DynamoDB is a fully managed NoSQL database service providing fast, predictable performance at any scale. It supports key-value and document data structures.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
 
 ## Core Concepts
 
@@ -81,6 +71,9 @@ table = dynamodb.create_table(
 )
 
 table.wait_until_exists()
+
+# Verify table is active
+print(table.table_status)  # Should be 'ACTIVE'
 ```
 
 ### Basic CRUD Operations

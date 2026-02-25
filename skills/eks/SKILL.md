@@ -1,44 +1,12 @@
 ---
 name: eks
 description: AWS EKS Kubernetes management for clusters, node groups, and workloads. Use when creating clusters, configuring IRSA, managing node groups, deploying applications, or integrating with AWS services.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/eks/latest/userguide/
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/eks/latest/userguide/
 ---
 
 # AWS EKS
-
-Amazon Elastic Kubernetes Service (EKS) runs Kubernetes without installing and operating your own control plane. EKS manages the control plane and integrates with AWS services.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-
-## Core Concepts
-
-### Control Plane
-
-Managed by AWS. Runs Kubernetes API server, etcd, and controllers across multiple AZs.
-
-### Node Groups
-
-| Type | Description |
-|------|-------------|
-| **Managed** | AWS manages provisioning, updates |
-| **Self-managed** | You manage EC2 instances |
-| **Fargate** | Serverless, per-pod compute |
-
-### IRSA (IAM Roles for Service Accounts)
-
-Associates Kubernetes service accounts with IAM roles for fine-grained AWS permissions.
-
-### Add-ons
-
-Operational software: CoreDNS, kube-proxy, VPC CNI, EBS CSI driver.
 
 ## Common Patterns
 
@@ -69,8 +37,9 @@ aws eks create-cluster \
   --role-arn arn:aws:iam::123456789012:role/eks-cluster-role \
   --resources-vpc-config subnetIds=subnet-12345678,subnet-87654321,securityGroupIds=sg-12345678
 
-# Wait for cluster
+# Wait for cluster and verify
 aws eks wait cluster-active --name my-cluster
+aws eks describe-cluster --name my-cluster --query cluster.status
 
 # Update kubeconfig
 aws eks update-kubeconfig --name my-cluster --region us-east-1

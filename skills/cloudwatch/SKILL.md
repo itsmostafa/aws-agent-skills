@@ -1,45 +1,12 @@
 ---
 name: cloudwatch
 description: AWS CloudWatch monitoring for logs, metrics, alarms, and dashboards. Use when setting up monitoring, creating alarms, querying logs with Insights, configuring metric filters, building dashboards, or troubleshooting application issues.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/
 ---
 
 # AWS CloudWatch
-
-Amazon CloudWatch provides monitoring and observability for AWS resources and applications. It collects metrics, logs, and events, enabling you to monitor, troubleshoot, and optimize your AWS environment.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-
-## Core Concepts
-
-### Metrics
-
-Time-ordered data points published to CloudWatch. Key components:
-- **Namespace**: Container for metrics (e.g., `AWS/Lambda`)
-- **Metric name**: Name of the measurement (e.g., `Invocations`)
-- **Dimensions**: Name-value pairs for filtering (e.g., `FunctionName=MyFunc`)
-- **Statistics**: Aggregations (Sum, Average, Min, Max, SampleCount, pN)
-
-### Logs
-
-Log data from AWS services and applications:
-- **Log groups**: Collections of log streams
-- **Log streams**: Sequences of log events from same source
-- **Log events**: Individual log entries with timestamp and message
-
-### Alarms
-
-Automated actions based on metric thresholds:
-- **States**: OK, ALARM, INSUFFICIENT_DATA
-- **Actions**: SNS notifications, Auto Scaling, EC2 actions
 
 ## Common Patterns
 
@@ -61,6 +28,9 @@ aws cloudwatch put-metric-alarm \
   --dimensions Name=InstanceId,Value=i-1234567890abcdef0 \
   --alarm-actions arn:aws:sns:us-east-1:123456789012:alerts \
   --ok-actions arn:aws:sns:us-east-1:123456789012:alerts
+
+# Verify alarm created
+aws cloudwatch describe-alarms --alarm-names "HighCPU-i-1234567890abcdef0" --query MetricAlarms[0].StateValue
 ```
 
 **boto3:**

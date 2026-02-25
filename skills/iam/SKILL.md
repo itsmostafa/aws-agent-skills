@@ -1,44 +1,12 @@
 ---
 name: iam
 description: AWS Identity and Access Management for users, roles, policies, and permissions. Use when creating IAM policies, configuring cross-account access, setting up service roles, troubleshooting permission errors, or managing access control.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/IAM/latest/UserGuide/
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/IAM/latest/UserGuide/
 ---
 
 # AWS IAM
-
-AWS Identity and Access Management (IAM) enables secure access control to AWS services and resources. IAM is foundational to AWS security—every AWS API call is authenticated and authorized through IAM.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-
-## Core Concepts
-
-### Principals
-
-Entities that can make requests to AWS: IAM users, roles, federated users, and applications.
-
-### Policies
-
-JSON documents defining permissions. Types:
-- **Identity-based**: Attached to users, groups, or roles
-- **Resource-based**: Attached to resources (S3 buckets, SQS queues)
-- **Permission boundaries**: Maximum permissions an identity can have
-- **Service control policies (SCPs)**: Organization-wide limits
-
-### Roles
-
-Identities with permissions that can be assumed by trusted entities. No permanent credentials—uses temporary security tokens.
-
-### Trust Relationships
-
-Define which principals can assume a role. Configured via the role's trust policy.
 
 ## Common Patterns
 
@@ -70,6 +38,9 @@ aws iam create-role \
 aws iam attach-role-policy \
   --role-name MyLambdaRole \
   --policy-arn arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+# Verify role created
+aws iam get-role --role-name MyLambdaRole --query Role.Arn
 ```
 
 **boto3:**

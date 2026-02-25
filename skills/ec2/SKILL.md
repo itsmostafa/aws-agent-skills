@@ -1,51 +1,12 @@
 ---
 name: ec2
 description: AWS EC2 virtual machine management for instances, AMIs, and networking. Use when launching instances, configuring security groups, managing key pairs, troubleshooting connectivity, or automating instance lifecycle.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/
 ---
 
 # AWS EC2
-
-Amazon Elastic Compute Cloud (EC2) provides resizable compute capacity in the cloud. Launch virtual servers, configure networking and security, and manage storage.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-
-## Core Concepts
-
-### Instance Types
-
-| Category | Example | Use Case |
-|----------|---------|----------|
-| General Purpose | t3, m6i | Web servers, dev environments |
-| Compute Optimized | c6i | Batch processing, gaming |
-| Memory Optimized | r6i | Databases, caching |
-| Storage Optimized | i3, d3 | Data warehousing |
-| Accelerated | p4d, g5 | ML, graphics |
-
-### Purchasing Options
-
-| Option | Description |
-|--------|-------------|
-| On-Demand | Pay by the hour/second |
-| Reserved | 1-3 year commitment, up to 72% discount |
-| Spot | Unused capacity, up to 90% discount |
-| Savings Plans | Flexible commitment-based discount |
-
-### AMI (Amazon Machine Image)
-
-Template containing OS, software, and configuration for launching instances.
-
-### Security Groups
-
-Virtual firewalls controlling inbound and outbound traffic.
 
 ## Common Patterns
 
@@ -88,6 +49,11 @@ aws ec2 run-instances \
   --security-group-ids sg-12345678 \
   --subnet-id subnet-12345678 \
   --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=web-server}]'
+
+# Verify instance is running
+aws ec2 wait instance-running --instance-ids <instance-id>
+aws ec2 describe-instances --instance-ids <instance-id> \
+  --query "Reservations[].Instances[].{State:State.Name,PublicIP:PublicIpAddress}"
 ```
 
 **boto3:**

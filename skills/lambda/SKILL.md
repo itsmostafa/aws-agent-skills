@@ -1,48 +1,12 @@
 ---
 name: lambda
 description: AWS Lambda serverless functions for event-driven compute. Use when creating functions, configuring triggers, debugging invocations, optimizing cold starts, setting up event source mappings, or managing layers.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/lambda/latest/dg/
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/lambda/latest/dg/
 ---
 
 # AWS Lambda
-
-AWS Lambda runs code without provisioning servers. You pay only for compute time consumed. Lambda automatically scales from a few requests per day to thousands per second.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-
-## Core Concepts
-
-### Function
-
-Your code packaged with configuration. Includes runtime, handler, memory, timeout, and IAM role.
-
-### Invocation Types
-
-| Type | Description | Use Case |
-|------|-------------|----------|
-| **Synchronous** | Caller waits for response | API Gateway, direct invoke |
-| **Asynchronous** | Fire and forget | S3, SNS, EventBridge |
-| **Poll-based** | Lambda polls source | SQS, Kinesis, DynamoDB Streams |
-
-### Execution Environment
-
-Lambda creates execution environments to run your function. Components:
-- **Cold start**: New environment initialization
-- **Warm start**: Reusing existing environment
-- **Handler**: Entry point function
-- **Context**: Runtime information
-
-### Layers
-
-Reusable packages of libraries, dependencies, or custom runtimes (up to 5 per function).
 
 ## Common Patterns
 
@@ -63,6 +27,9 @@ aws lambda create-function \
   --zip-file fileb://function.zip \
   --timeout 30 \
   --memory-size 256
+
+# Verify function created
+aws lambda get-function --function-name MyFunction --query Configuration.FunctionArn
 
 # Update function code
 aws lambda update-function-code \

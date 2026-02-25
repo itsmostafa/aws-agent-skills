@@ -1,47 +1,14 @@
 ---
 name: eventbridge
-description: AWS EventBridge serverless event bus for event-driven architectures. Use when creating rules, configuring event patterns, setting up scheduled events, integrating with SaaS, or building cross-account event routing.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/eventbridge/latest/userguide/
+description: AWS EventBridge serverless event bus for event-driven architectures. Use when writing event pattern rules, creating cron-based or rate-based schedules, publishing custom events to event buses, integrating with SaaS partner events, or building cross-account event routing.
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/eventbridge/latest/userguide/
 ---
 
 # AWS EventBridge
 
-Amazon EventBridge is a serverless event bus that connects applications using events. Route events from AWS services, custom applications, and SaaS partners.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-
-## Core Concepts
-
-### Event Bus
-
-Channel that receives events. Types:
-- **Default**: Receives AWS service events
-- **Custom**: Your application events
-- **Partner**: SaaS application events
-
-### Rules
-
-Match incoming events and route to targets. Each rule can have up to 5 targets.
-
-### Event Patterns
-
-JSON patterns that define which events match a rule.
-
-### Targets
-
-AWS services that receive matched events (Lambda, SQS, SNS, Step Functions, etc.).
-
-### Scheduler
-
-Schedule one-time or recurring events to invoke targets.
+Event buses receive events (default for AWS service events, custom for application events, partner for SaaS). Rules match events via JSON patterns and route to up to 5 targets (Lambda, SQS, SNS, Step Functions, etc.).
 
 ## Common Patterns
 
@@ -78,6 +45,9 @@ aws lambda add-permission \
   --action lambda:InvokeFunction \
   --principal events.amazonaws.com \
   --source-arn arn:aws:events:us-east-1:123456789012:rule/my-app-events/order-created-rule
+
+# Verify rule is active
+aws events describe-rule --name order-created-rule --event-bus-name my-app-events --query State
 ```
 
 **boto3:**

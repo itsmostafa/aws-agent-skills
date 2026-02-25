@@ -1,0 +1,23 @@
+{
+  "repo": "itsmostafa/aws-agent-skills",
+  "skills": [
+    { "name": "api-gateway", "before": 90, "after": 94 },
+    { "name": "bedrock", "before": 74, "after": 94 },
+    { "name": "cloudformation", "before": 90, "after": 90 },
+    { "name": "cloudwatch", "before": 83, "after": 94 },
+    { "name": "cognito", "before": 83, "after": 90 },
+    { "name": "dynamodb", "before": 75, "after": 90 },
+    { "name": "ec2", "before": 83, "after": 100 },
+    { "name": "ecs", "before": 83, "after": 94 },
+    { "name": "eks", "before": 83, "after": 94 },
+    { "name": "eventbridge", "before": 77, "after": 100 },
+    { "name": "iam", "before": 83, "after": 94 },
+    { "name": "lambda", "before": 83, "after": 94 },
+    { "name": "rds", "before": 74, "after": 100 },
+    { "name": "s3", "before": 83, "after": 94 },
+    { "name": "secrets-manager", "before": 83, "after": 94 },
+    { "name": "sns", "before": 75, "after": 94 },
+    { "name": "sqs", "before": 89, "after": 90 },
+    { "name": "step-functions", "before": 77, "after": 90 }
+  ]
+}

@@ -1,47 +1,12 @@
 ---
 name: secrets-manager
 description: AWS Secrets Manager for secure secret storage and rotation. Use when storing credentials, configuring automatic rotation, managing secret versions, retrieving secrets in applications, or integrating with RDS.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/secretsmanager/latest/userguide/
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/secretsmanager/latest/userguide/
 ---
 
 # AWS Secrets Manager
-
-AWS Secrets Manager helps protect access to applications, services, and IT resources. Store, retrieve, and automatically rotate credentials, API keys, and other secrets.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-
-## Core Concepts
-
-### Secrets
-
-Encrypted data stored in Secrets Manager. Can contain:
-- Database credentials
-- API keys
-- OAuth tokens
-- Any key-value pairs (up to 64 KB)
-
-### Versions
-
-Each secret can have multiple versions:
-- **AWSCURRENT**: Current active version
-- **AWSPENDING**: Version being rotated to
-- **AWSPREVIOUS**: Previous version
-
-### Rotation
-
-Automatic credential rotation using Lambda functions. Built-in support for:
-- Amazon RDS
-- Amazon Redshift
-- Amazon DocumentDB
-- Custom secrets
 
 ## Common Patterns
 

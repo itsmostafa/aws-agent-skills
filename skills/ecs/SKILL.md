@@ -1,47 +1,12 @@
 ---
 name: ecs
 description: AWS ECS container orchestration for running Docker containers. Use when deploying containerized applications, configuring task definitions, setting up services, managing clusters, or troubleshooting container issues.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/
 ---
 
 # AWS ECS
-
-Amazon Elastic Container Service (ECS) is a fully managed container orchestration service. Run containers on AWS Fargate (serverless) or EC2 instances.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-
-## Core Concepts
-
-### Cluster
-
-Logical grouping of tasks or services. Can contain Fargate tasks, EC2 instances, or both.
-
-### Task Definition
-
-Blueprint for your application. Defines containers, resources, networking, and IAM roles.
-
-### Task
-
-Running instance of a task definition. Can run standalone or as part of a service.
-
-### Service
-
-Maintains desired count of tasks. Handles deployments, load balancing, and auto scaling.
-
-### Launch Types
-
-| Type | Description | Use Case |
-|------|-------------|----------|
-| **Fargate** | Serverless, pay per task | Most workloads |
-| **EC2** | Self-managed instances | GPU, Windows, specific requirements |
 
 ## Common Patterns
 
@@ -60,6 +25,9 @@ aws ecs create-cluster \
   --default-capacity-provider-strategy \
     capacityProvider=FARGATE,weight=1 \
     capacityProvider=FARGATE_SPOT,weight=1
+
+# Verify cluster is active
+aws ecs describe-clusters --clusters my-cluster --query "clusters[0].status"
 ```
 
 ### Register Task Definition

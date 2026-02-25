@@ -1,47 +1,12 @@
 ---
 name: s3
 description: AWS S3 object storage for bucket management, object operations, and access control. Use when creating buckets, uploading files, configuring lifecycle policies, setting up static websites, managing permissions, or implementing cross-region replication.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/AmazonS3/latest/userguide/
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/AmazonS3/latest/userguide/
 ---
 
 # AWS S3
-
-Amazon Simple Storage Service (S3) provides scalable object storage with industry-leading durability (99.999999999%). S3 is fundamental to AWS—used for data lakes, backups, static websites, and as storage for many other AWS services.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-
-## Core Concepts
-
-### Buckets
-
-Containers for objects. Bucket names are globally unique across all AWS accounts.
-
-### Objects
-
-Files stored in S3, consisting of data, metadata, and a unique key (path). Maximum size: 5 TB.
-
-### Storage Classes
-
-| Class | Use Case | Durability | Availability |
-|-------|----------|------------|--------------|
-| Standard | Frequently accessed | 99.999999999% | 99.99% |
-| Intelligent-Tiering | Unknown access patterns | 99.999999999% | 99.9% |
-| Standard-IA | Infrequent access | 99.999999999% | 99.9% |
-| Glacier Instant | Archive with instant retrieval | 99.999999999% | 99.9% |
-| Glacier Flexible | Archive (minutes to hours) | 99.999999999% | 99.99% |
-| Glacier Deep Archive | Long-term archive | 99.999999999% | 99.99% |
-
-### Versioning
-
-Keeps multiple versions of an object. Essential for data protection and recovery.
 
 ## Common Patterns
 
@@ -66,6 +31,9 @@ aws s3api put-public-access-block \
   --bucket my-secure-bucket-12345 \
   --public-access-block-configuration \
     BlockPublicAcls=true,IgnorePublicAcls=true,BlockPublicPolicy=true,RestrictPublicBuckets=true
+
+# Verify bucket creation
+aws s3api head-bucket --bucket my-secure-bucket-12345
 
 # Enable encryption
 aws s3api put-bucket-encryption \

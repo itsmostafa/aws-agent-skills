@@ -1,49 +1,12 @@
 ---
 name: api-gateway
 description: AWS API Gateway for REST and HTTP API management. Use when creating APIs, configuring integrations, setting up authorization, managing stages, implementing rate limiting, or troubleshooting API issues.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/apigateway/latest/developerguide/
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/apigateway/latest/developerguide/
 ---
 
 # AWS API Gateway
-
-Amazon API Gateway is a fully managed service for creating, publishing, and securing APIs at any scale. Supports REST APIs, HTTP APIs, and WebSocket APIs.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
-
-## Core Concepts
-
-### API Types
-
-| Type | Description | Use Case |
-|------|-------------|----------|
-| **HTTP API** | Low-latency, cost-effective | Simple APIs, Lambda proxy |
-| **REST API** | Full-featured, more control | Complex APIs, transformation |
-| **WebSocket API** | Bidirectional communication | Real-time apps, chat |
-
-### Key Components
-
-- **Resources**: URL paths (/users, /orders/{id})
-- **Methods**: HTTP verbs (GET, POST, PUT, DELETE)
-- **Integrations**: Backend connections (Lambda, HTTP, AWS services)
-- **Stages**: Deployment environments (dev, prod)
-
-### Integration Types
-
-| Type | Description |
-|------|-------------|
-| **Lambda Proxy** | Pass-through to Lambda (recommended) |
-| **Lambda Custom** | Transform request/response |
-| **HTTP Proxy** | Pass-through to HTTP endpoint |
-| **AWS Service** | Direct integration with AWS services |
-| **Mock** | Return static response |
 
 ## Common Patterns
 

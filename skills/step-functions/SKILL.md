@@ -1,22 +1,12 @@
 ---
 name: step-functions
-description: AWS Step Functions workflow orchestration with state machines. Use when designing workflows, implementing error handling, configuring parallel execution, integrating with AWS services, or debugging executions.
-last_updated: "2026-01-07"
-doc_source: https://docs.aws.amazon.com/step-functions/latest/dg/
+description: AWS Step Functions workflow orchestration with state machines. Use when writing ASL state machine definitions, configuring retry and catch error handling policies, implementing parallel or map execution, integrating AWS services via SDK tasks, or debugging execution history.
+metadata:
+  last_updated: "2026-01-07"
+  doc_source: https://docs.aws.amazon.com/step-functions/latest/dg/
 ---
 
 # AWS Step Functions
-
-AWS Step Functions is a serverless orchestration service that lets you build and run workflows using state machines. Coordinate multiple AWS services into business-critical applications.
-
-## Table of Contents
-
-- [Core Concepts](#core-concepts)
-- [Common Patterns](#common-patterns)
-- [CLI Reference](#cli-reference)
-- [Best Practices](#best-practices)
-- [Troubleshooting](#troubleshooting)
-- [References](#references)
 
 ## Core Concepts
 
@@ -77,11 +67,21 @@ JSON-based language for defining state machines.
 **AWS CLI:**
 
 ```bash
+# Validate definition first
+aws stepfunctions validate-state-machine-definition \
+  --definition file://workflow.json
+
+# Create state machine
 aws stepfunctions create-state-machine \
   --name OrderWorkflow \
   --definition file://workflow.json \
   --role-arn arn:aws:iam::123456789012:role/StepFunctionsRole \
   --type STANDARD
+
+# Verify creation
+aws stepfunctions describe-state-machine \
+  --state-machine-arn arn:aws:states:us-east-1:123456789012:stateMachine:OrderWorkflow \
+  --query status
 ```
 
 **boto3:**
