@@ -1,90 +1,64 @@
 [
   {
-    "service": "eks",
-    "title": "AWS managed policy updates",
-    "description": "Removed the \"eks\" prefix requirement in the name of the target instance profile for the <code class=\"code\">iam:GetInstanceProfile</code> permission in <code class=\"code\">AmazonEKSServiceRolePolicy</code>. This allows Amazon EKS Auto Mode to validate and utilize custom instance profiles in NodeClasses without requiring the \"eks\" naming prefix.",
-    "link": "https://docs.aws.amazon.com/eks/latest/userguide/security-iam-awsmanpol.html",
-    "published": "2026-02-02T19:00:00+00:00",
-    "significant": true
-  },
-  {
-    "service": "bedrock",
-    "title": "Amazon Bedrock adds support for the latest open-weight models in Asia Pacific (Sydney)",
-    "description": "<p>Amazon Bedrock is a fully managed service that provides secure, enterprise-grade access to high-performing foundation models from leading AI companies, enabling you to build and scale generative AI applications. Today, Amazon Bedrock announced support for the latest open-weight models in Asia Pacific (Sydney) using the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/endpoints.html\">bedrock-mantle</a>&nbsp;endpoint. These include models from industry-leading providers, including ",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-support-latest-open-weight-models-asia-pacific-sydney/",
-    "published": "2026-02-12T22:14:00+00:00",
+    "service": "eventbridge",
+    "title": "AWS Network Firewall now supports firewall state change notifications through Amazon EventBridge",
+    "description": "<p>AWS Network Firewall now integrates with Amazon EventBridge to provide real-time notifications for firewall state changes and configuration updates. This new capability enables you to monitor critical firewall operations including firewall configuration updates and endpoint status modifications across your network security infrastructure. You gain immediate visibility into changes affecting AWS Managed Rules, Partner Managed Rules, and firewall configurations.<br /> <br /> With EventBridge in",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/firewall-state-change-notifications/",
+    "published": "2026-02-27T19:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
-    "service": "bedrock",
-    "title": "Amazon Bedrock expands support for AWS PrivateLink",
-    "description": "<p>Amazon Bedrock is a fully managed service that provides secure, enterprise-grade access to high-performing foundation models from leading AI companies. It enables you to build and scale generative AI applications. Amazon Bedrock already supported AWS PrivateLink for the <a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/endpoints.html\">bedrock-runtime</a> endpoint. Now, with this launch, you can also use AWS PrivateLink to privately access your applications using the <a href=\"https",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-expands-aws-privatelink-support-openai-api-endpoints/",
-    "published": "2026-02-12T21:40:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "bedrock",
-    "title": "Amazon Bedrock increases default quotas for Anthropic\u2019s Claude Sonnet 4.5 model in AWS GovCloud (US)",
-    "description": "<p>Amazon Bedrock has increased the default quotas for Anthropic\u2019s Claude Sonnet 4.5 in AWS GovCloud (US-West) and AWS GovCloud (US-East) to 5,000,000 tokens per minute and 1,000 requests per minute, aligning with commercial AWS regions. This 25x increase enables customers to scale their AI workloads more effectively in regulated environments.<br /> Claude Sonnet 4.5 is Anthropic's latest Sonnet model, excelling at building complex agents, coding, and long-horizon tasks while maintaining optimal",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-s4.5-quota-aws-govcloud-us",
-    "published": "2026-02-12T19:52:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "bedrock",
-    "title": "Amazon Bedrock AgentCore Browser now supports proxy configuration",
-    "description": "<p>Amazon Bedrock AgentCore Browser now supports customer-provided proxy configuration, enabling customers to route browser sessions through their own proxy infrastructure for geo-targeting, regional content access, and compliance requirements. Organizations can access geo-restricted content, verify region-specific pricing, and validate localized application behavior across markets. Customers in regulated industries such as healthcare and financial services can route traffic through corporate pr",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/bedrock-agentcore-browser-proxy",
-    "published": "2026-02-11T06:16:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "bedrock",
-    "title": "Amazon Bedrock adds support for six fully-managed open weights models",
-    "description": "<p>Amazon Bedrock now supports six new models spanning frontier reasoning and agentic coding: DeepSeek V3.2, MiniMax M2.1, GLM 4.7, GLM 4.7 Flash, Kimi K2.5, and Qwen3 Coder Next. These six models bring customers access to the most capable open weights models available today, delivering frontier-class performance at significantly lower inference costs. They collectively cover the full spectrum of enterprise AI workloads: DeepSeek V3.2 and Kimi K2.5 push the frontier on reasoning and agentic inte",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-adds-support-six-open-weights-models",
-    "published": "2026-02-10T16:02:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "bedrock",
-    "title": "Amazon Neptune Analytics is now available in 7 additional regions",
-    "description": "<p><a href=\"https://docs.aws.amazon.com/neptune-analytics/latest/userguide/what-is-neptune-analytics.html\" target=\"_blank\">Amazon Neptune Analytics</a> is now available in Middle East (Bahrain), Middle East (UAE), Israel (Tel Aviv), Africa (Cape Town), Canada (Calgary), Asia Pacific (Malaysia), and Europe (Zurich) regions. You can now create and manage Neptune Analytics graphs in these new regions and run advanced graph analytics.<br /> <br /> Amazon Neptune is a serverless graph database for co",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-neptune-analytics-in-seven-additional-regions",
-    "published": "2026-02-09T21:45:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "bedrock",
-    "title": "Claude Opus 4.6 now available in Amazon Bedrock",
-    "description": "<p>Starting today, Amazon Bedrock supports Claude Opus 4.6. According to Anthropic, Opus 4.6 is their most intelligent model and the world's best model for coding, enterprise agents, and professional work. Claude Opus 4.6 brings advanced capabilities to Amazon Bedrock customers, including industry-leading performance for agentic tasks, complex coding projects, and enterprise-grade workflows that require deep reasoning and reliability.<br /> <br /> Claude Opus 4.6 excels across use cases that req",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/2/claude-opus-4.6-available-amazon-bedrock/",
-    "published": "2026-02-05T09:59:00+00:00",
+    "service": "eventbridge",
+    "title": "AWS Marketplace now supports multiple purchases of SaaS & Professional Services products from the same account",
+    "description": "<p>AWS Marketplace now supports Concurrent Agreements for SaaS and Professional Services products, enabling buyers to make multiple purchases for the same product within a single AWS account. Previously, buyers could only maintain one active agreement per product per AWS account, requiring sellers to use workarounds to support expansion deals. Concurrent Agreements removes this constraint, allowing different business units to procure independently with their own negotiated terms and pricing.</p>",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/concurrent-agreements-february/",
+    "published": "2026-02-26T21:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "cloudformation",
-    "title": "Amazon CloudFront announces mutual TLS support for origins",
-    "description": "<p>Amazon CloudFront announces support for mutual TLS authentication (mTLS) for origins, a security protocol that enables customers to verify that requests to their origin servers come only from their authorized CloudFront distributions using TLS certificates. This certificate-based authentication provides cryptographic verification of CloudFront's identity, eliminating the need for customers to manage custom security controls.<br /> <br /> Previously, verifying that requests came from CloudFron",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-cloudfront-mutual-tls-for-origins/",
-    "published": "2026-02-02T18:00:00+00:00",
+    "title": "Amazon Cognito enhances client secret management with secret rotation and custom secrets",
+    "description": "<p>Amazon Cognito enhances client secret lifecycle management for app clients of Cognito user pools by adding client secret rotation and support for custom client secrets. Cognito helps you implement secure sign-in and access control for users, AI agents, and microservices in minutes, and a Cognito app client is a configuration that interacts with one mobile or web application that authenticates with Cognito. Previously, Cognito automatically generated all app client secrets. With this launch, i",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-cognito-client-secret-lifecycle/",
+    "published": "2026-02-26T17:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
-    "service": "cloudformation",
-    "title": "AWS Lambda launches enhanced observability for Kafka event source mappings",
-    "description": "<p style=\"text-align: left;\">AWS Lambda launches enhanced observability for Kafka event source mappings (ESM) that provides Amazon CloudWatch Logs and metrics to monitor event polling setup, scaling, and processing state of Kafka events. This capability allows customers to quickly diagnose setup issues and take timely corrective actions to operate resilient data streaming workloads. This capability is available for both Amazon Managed Streaming for Apache Kafka (Amazon MSK) and self-managed Apac",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/aws-Lambda-observability-for-kafka-esm/",
-    "published": "2026-01-30T18:00:00+00:00",
+    "service": "cognito",
+    "title": "Amazon Cognito enhances client secret management with secret rotation and custom secrets",
+    "description": "<p>Amazon Cognito enhances client secret lifecycle management for app clients of Cognito user pools by adding client secret rotation and support for custom client secrets. Cognito helps you implement secure sign-in and access control for users, AI agents, and microservices in minutes, and a Cognito app client is a configuration that interacts with one mobile or web application that authenticates with Cognito. Previously, Cognito automatically generated all app client secrets. With this launch, i",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-cognito-client-secret-lifecycle/",
+    "published": "2026-02-26T17:00:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "bedrock",
+    "title": "Amazon Bedrock reinforcement fine-tuning adds support for open-weight models with OpenAI-compatible APIs",
+    "description": "<p>Amazon Bedrock now extends reinforcement fine-tuning (RFT) support to popular open-weight models, including OpenAI GPT-OSS and Qwen models, and introduces OpenAI-compatible fine-tuning APIs. These capabilities make it easier for developers to improve open-weight model accuracy without requiring deep machine learning expertise or large volumes of labeled data. Reinforcement fine-tuning in Amazon Bedrock automates the end-to-end customization workflow, allowing models to learn from feedback on ",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-bedrock-reinforcement-fine-tuning-openai",
+    "published": "2026-02-17T21:17:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "eventbridge",
+    "title": "Amazon EventBridge Scheduler adds resource count metrics for quota monitoring",
+    "description": "<p>Amazon EventBridge Scheduler now emits resource count metrics to Amazon CloudWatch, enabling you to monitor the approximate number of schedules and schedule groups in your account. These new metrics help you identify when you're approaching your service quota limits so you can request increases before running out of capacity. You can increase the schedules quota, for instance, from the default of 10 million to billions.</p> \n<p>With Amazon EventBridge Scheduler, you can create billions of sch",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-eventbridge-scheduler-resource-metrics/",
+    "published": "2026-02-17T17:29:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "bedrock",
+    "title": "Claude Sonnet 4.6 now available in Amazon Bedrock",
+    "description": "<p>Starting today, Amazon Bedrock supports Claude Sonnet 4.6, which offers frontier performance across coding, agents, and professional work at scale.&nbsp;According to Anthropic, Claude Sonnet 4.6 is their best computer use model yet, allowing organizations&nbsp;to deploy browser-based automation across business tools with near-human reliability. Claude Sonnet 4.6 approaches Opus 4.6 intelligence at a lower cost. It enables faster, high-quality task completion, making it ideal for high-volume c",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/claude-sonnet-4.6-available-in-amazon-bedrock/",
+    "published": "2026-02-17T15:43:00+00:00",
     "significant": true,
     "source": "whats-new"
   }
