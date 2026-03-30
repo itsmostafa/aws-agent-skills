@@ -1,82 +1,73 @@
 [
   {
     "service": "cloudformation",
-    "title": "Accelerate Lambda durable functions development with new Kiro power",
-    "description": "<p>Today, AWS announces the Lambda durable functions Kiro power, bringing Lambda durable function development expertise to agentic AI development in Kiro. With this power, you can build resilient, long-running multi-step applications and AI workflows faster with AI agent-assisted development directly in your local development environment.</p> \n<p>When you work with durable functions, the AI agent dynamically loads relevant guidance and development expertise. This includes replay model best pract",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/lambda-durable-kiro-power/",
-    "published": "2026-03-05T07:00:00+00:00",
+    "title": "AWS Lambda supports up to 32 GB of memory and 16 vCPUs for Lambda Managed Instances",
+    "description": "<p>AWS Lambda now supports up to 32 GB of memory and 16 vCPUs for functions running on Lambda Managed Instances, enabling customers to run compute-intensive workloads such as large-scale data processing, media transcoding, and scientific simulations without managing any infrastructure. Customers can also configure the memory-to-vCPU ratio \u2014 2:1, 4:1, or 8:1 \u2014 to match the resource profile of their workload. Lambda Managed Instances lets you run Lambda functions on managed Amazon EC2 instances wi",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/lambda-32-gb-memory-16-vcpus/",
+    "published": "2026-03-27T16:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
-    "service": "cloudformation",
-    "title": "AWS simplifies IAM role creation and setup in service workflows",
-    "description": "<p><a href=\"https://aws.amazon.com/iam/\">AWS Identity and Access Management (IAM)</a> now makes it easier to create and configure IAM roles directly within service workflows, allowing you to customize role permissions without switching between browser tabs. Now, when you are performing console tasks that involve role configuration, a new panel will appear to set the permissions required.<br /> <br /> IAM roles enable secure AWS cross-service connections using temporary credentials, eliminating t",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/aws-simplifies-iam-role-creation-and-setup/",
-    "published": "2026-03-04T20:50:00+00:00",
+    "service": "eventbridge",
+    "title": "Accelerate AI-assisted development with Agent Plugin for AWS Serverless",
+    "description": "<p>AWS announces the Agent Plugin for&nbsp;AWS&nbsp;Serverless, enabling developers to easily build, deploy, troubleshoot, and manage serverless applications using AI coding assistants like Kiro, Claude Code, and Cursor.</p> \n<p>Agent plugins extend AI coding assistants with structured, reusable capabilities by packaging skills, sub-agents, hooks, and Model Context Protocol (MCP)&nbsp;servers into a single modular unit. The&nbsp;Agent Plugin for&nbsp;AWS&nbsp;Serverless&nbsp;dynamically loads re",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/agent-plugin-aws-serverless/",
+    "published": "2026-03-25T21:00:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "eventbridge",
+    "title": "AWS Batch now provides AMI status and supports AWS Health Planned Lifecycle Events",
+    "description": "<p>AWS Batch now provides enhanced visibility into your compute environments with two new capabilities that help you maintain operational best practices. When you describe a compute environment, you can now see the status of your Batch-provided default Amazon Machine Images (AMIs), indicating when updates are available. Additionally, AWS Batch now publishes AWS Health Planned Lifecycle Events to help you prepare for and track changes affecting your batch computing resources.<br /> <br /> The AMI",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/aws-batch-ami-status-aws-health/",
+    "published": "2026-03-25T20:32:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "bedrock",
-    "title": "Amazon Lightsail now offers OpenClaw, a private self-hosted AI assistant",
-    "description": "<p>Amazon Lightsail now lets you deploy OpenClaw, a private self-hosted AI assistant, on your own cloud infrastructure in a simple and secure manner.<br /> <br /> Every Lightsail OpenClaw instance ships with built-in security controls, pre-configured and ready to use. Sandboxing isolates each agent session for improved security posture. One-click HTTPS access puts the OpenClaw dashboard in your browser securely, without requiring manual TLS configuration. Device pairing authentication ensures on",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-lightsail-openclaw/",
-    "published": "2026-03-04T17:11:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "eventbridge",
-    "title": "Amazon EventBridge Scheduler now provides a higher default quota for the CreateSchedule API",
-    "description": "<p>Amazon EventBridge Scheduler now has a higher default service quota for the CreateSchedule API action. The default CreateSchedule request rate quota is now 5,000 requests per second in 11 AWS Regions. Quotas can be further increased to tens of thousands of requests per second by making a request through the Service Quotas console.<br /> <br /> EventBridge Scheduler is a serverless scheduler that allows you to create, run, and manage billions of scheduled events and tasks, across more than 270",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/2/eventbridge-default-quota-increase/",
-    "published": "2026-03-04T16:00:00+00:00",
+    "title": "Amazon Bedrock AgentCore adds support for Chrome policies and custom root CA",
+    "description": "<p>Amazon Bedrock AgentCore now enables customers to configure Chrome Enterprise policies for AgentCore Browser and specify custom root Certificate Authority (CA) certificates for both AgentCore Browser and Code Interpreter. These enhancements help ensure enterprise requirements are met when allowing AI agents to operate within organizations that have strict security policies and internal infrastructure using custom certificates.<br /> <br /> With Chrome policies, you can leverage over 100+ conf",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-browser-policies-root-ca/",
+    "published": "2026-03-25T20:10:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "bedrock",
-    "title": "Policy in Amazon Bedrock AgentCore is now generally available",
-    "description": "<p>Policy in Amazon Bedrock&nbsp;AgentCore&nbsp;is now generally available, providing organizations with centralized, fine-grained controls for agent-tool interactions.&nbsp;Policy&nbsp;operates&nbsp;outside your&nbsp;agent&nbsp;code, enabling security,&nbsp;compliance, and operations teams to define&nbsp;tool&nbsp;access and&nbsp;input&nbsp;validation&nbsp;rules&nbsp;without&nbsp;modifying&nbsp;agent code.&nbsp;Teams can author policies using natural language that automatically converts to Ceda",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/",
-    "published": "2026-03-03T18:00:00+00:00",
+    "title": "AWS DMS Schema Conversion with GenAI now available in 10 additional regions",
+    "description": "<p>AWS Database Migration Service (DMS) Schema Conversion with GenAI is now available in nine additional AWS Regions: Asia Pacific (Tokyo, Osaka, Sydney), Europe (Ireland, London, Stockholm, Paris), Canada (Central) and US East (Ohio). This feature leverages Amazon Bedrock foundation models\u2014including Claude 3.5 Sonnet v2, Claude 3.7 Sonnet, and Claude Sonnet 4\u2014to automate database schema and code conversion, helping organizations accelerate their database modernization initiatives. The regional ",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/aws-dms-schema-conversion-with-genai/",
+    "published": "2026-03-20T15:29:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "bedrock",
+    "title": "NVIDIA Nemotron 3 Super now available on Amazon Bedrock",
+    "description": "<p>Amazon Bedrock now supports NVIDIA Nemotron 3 Super, an open hybrid Mixture-of-Experts (MoE) model designed for complex multi-agent applications. Built for agentic workloads, Nemotron 3 Super delivers fast, and cost-efficient inference enabling AI agents to maintain focus and accuracy across long, multi-step tasks without losing context. Fully open with weights, datasets, and recipes, the model supports easy customization and secure deployment, making it well-suited for enterprises, startups,",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-nemotron-3-super/",
+    "published": "2026-03-18T18:00:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "bedrock",
+    "title": "Amazon Bedrock is now available in Asia Pacific (New Zealand)",
+    "description": "<p>Starting today, customers can use Amazon Bedrock in the Asia Pacific (New Zealand) Region to easily build and scale generative AI applications using a variety of foundation models (FMs) as well as powerful tools to build generative AI applications.<br /> <br /> Amazon Bedrock is a fully managed service that offers a choice of high-performing large language models (LLMs) and other FMs from&nbsp;<a href=\"https://docs.aws.amazon.com/bedrock/latest/userguide/models.html\">leading AI companies</a>&",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-asia-pacific-new-zealand/",
+    "published": "2026-03-17T01:35:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "eventbridge",
-    "title": "AWS Network Firewall now supports firewall state change notifications through Amazon EventBridge",
-    "description": "<p>AWS Network Firewall now integrates with Amazon EventBridge to provide real-time notifications for firewall state changes and configuration updates. This new capability enables you to monitor critical firewall operations including firewall configuration updates and endpoint status modifications across your network security infrastructure. You gain immediate visibility into changes affecting AWS Managed Rules, Partner Managed Rules, and firewall configurations.<br /> <br /> With EventBridge in",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/firewall-state-change-notifications/",
-    "published": "2026-02-27T19:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "eventbridge",
-    "title": "AWS Marketplace now supports multiple purchases of SaaS & Professional Services products from the same account",
-    "description": "<p>AWS Marketplace now supports Concurrent Agreements for SaaS and Professional Services products, enabling buyers to make multiple purchases for the same product within a single AWS account. Previously, buyers could only maintain one active agreement per product per AWS account, requiring sellers to use workarounds to support expansion deals. Concurrent Agreements removes this constraint, allowing different business units to procure independently with their own negotiated terms and pricing.</p>",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/concurrent-agreements-february/",
-    "published": "2026-02-26T21:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "cloudformation",
-    "title": "Amazon Cognito enhances client secret management with secret rotation and custom secrets",
-    "description": "<p>Amazon Cognito enhances client secret lifecycle management for app clients of Cognito user pools by adding client secret rotation and support for custom client secrets. Cognito helps you implement secure sign-in and access control for users, AI agents, and microservices in minutes, and a Cognito app client is a configuration that interacts with one mobile or web application that authenticates with Cognito. Previously, Cognito automatically generated all app client secrets. With this launch, i",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-cognito-client-secret-lifecycle/",
-    "published": "2026-02-26T17:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "cognito",
-    "title": "Amazon Cognito enhances client secret management with secret rotation and custom secrets",
-    "description": "<p>Amazon Cognito enhances client secret lifecycle management for app clients of Cognito user pools by adding client secret rotation and support for custom client secrets. Cognito helps you implement secure sign-in and access control for users, AI agents, and microservices in minutes, and a Cognito app client is a configuration that interacts with one mobile or web application that authenticates with Cognito. Previously, Cognito automatically generated all app client secrets. With this launch, i",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-cognito-client-secret-lifecycle/",
-    "published": "2026-02-26T17:00:00+00:00",
+    "title": "Accelerate serverless application development with new SAM Kiro power",
+    "description": "<p>AWS announces the AWS Serverless Application Model (SAM)&nbsp;Kiro power, bringing serverless application development&nbsp;expertise&nbsp;to agentic AI development in Kiro. With this power, you can build, deploy, and manage serverless applications with AI agent-assisted development directly in your local environment.</p> \n<p>SAM is an open-source framework that simplifies building serverless applications on AWS.&nbsp;SAM&nbsp;Kiro power dynamically loads relevant guidance and development&nbsp",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/aws-sam-kiro-power/",
+    "published": "2026-03-13T18:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   }
