@@ -1,82 +1,80 @@
 [
   {
-    "service": "cloudformation",
-    "title": "Accelerate Lambda durable functions development with new Kiro power",
-    "description": "<p>Today, AWS announces the Lambda durable functions Kiro power, bringing Lambda durable function development expertise to agentic AI development in Kiro. With this power, you can build resilient, long-running multi-step applications and AI workflows faster with AI agent-assisted development directly in your local development environment.</p> \n<p>When you work with durable functions, the AI agent dynamically loads relevant guidance and development expertise. This includes replay model best pract",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/lambda-durable-kiro-power/",
-    "published": "2026-03-05T07:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
+    "service": "s3",
+    "title": "Amazon S3 Express One Zone adds new AWS managed policies",
+    "description": "Amazon S3 Express One Zone added new AWS-managed policies called \n\t\t\t\t<code class=\"code\"> AmazonS3ExpressFullAccess</code> and <code class=\"code\">AmazonS3ExpressReadOnlyAccess</code>. For more information, see \n\t\t\t\t<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-one-zone-security-iam-awsmanpol.html\">AWS managed policies for Amazon S3 Express One Zone</a>.",
+    "link": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/WhatsNew.html",
+    "published": "2026-04-03T19:00:00+00:00",
+    "significant": true
   },
   {
-    "service": "cloudformation",
-    "title": "AWS simplifies IAM role creation and setup in service workflows",
-    "description": "<p><a href=\"https://aws.amazon.com/iam/\">AWS Identity and Access Management (IAM)</a> now makes it easier to create and configure IAM roles directly within service workflows, allowing you to customize role permissions without switching between browser tabs. Now, when you are performing console tasks that involve role configuration, a new panel will appear to set the permissions required.<br /> <br /> IAM roles enable secure AWS cross-service connections using temporary credentials, eliminating t",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/aws-simplifies-iam-role-creation-and-setup/",
-    "published": "2026-03-04T20:50:00+00:00",
+    "service": "rds",
+    "title": "RDS Custom for Oracle",
+    "description": "End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/RDS-Custom-for-Oracle-end-of-support.html\">RDS Custom for Oracle end of\n      support</a>.",
+    "link": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/RDS-Custom-for-Oracle-end-of-support.html",
+    "published": "2028-03-31T19:00:00+00:00",
+    "significant": true
+  },
+  {
+    "service": "bedrock",
+    "title": "AWS Agent Registry for centralized agent discovery and governance is now available in Preview",
+    "description": "<p>AWS Agent Registry, available through Amazon Bedrock AgentCore, is now in preview \u2014 a private, governed catalog and discovery layer for agents, tools, skills, MCP servers, and custom resources within the organization. It gives teams complete visibility into their AI landscape, enabling them to discover existing agents and tools instead of rebuilding capabilities that already exist. The registry can be accessed via the AgentCore Console UI, APIs (AWS CLI, AWS SDK), or as an MCP server that bui",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/04/aws-agent-registry-in-agentcore-preview/",
+    "published": "2026-04-09T16:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "bedrock",
-    "title": "Amazon Lightsail now offers OpenClaw, a private self-hosted AI assistant",
-    "description": "<p>Amazon Lightsail now lets you deploy OpenClaw, a private self-hosted AI assistant, on your own cloud infrastructure in a simple and secure manner.<br /> <br /> Every Lightsail OpenClaw instance ships with built-in security controls, pre-configured and ready to use. Sandboxing isolates each agent session for improved security posture. One-click HTTPS access puts the OpenClaw dashboard in your browser securely, without requiring manual TLS configuration. Device pairing authentication ensures on",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-lightsail-openclaw/",
-    "published": "2026-03-04T17:11:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "eventbridge",
-    "title": "Amazon EventBridge Scheduler now provides a higher default quota for the CreateSchedule API",
-    "description": "<p>Amazon EventBridge Scheduler now has a higher default service quota for the CreateSchedule API action. The default CreateSchedule request rate quota is now 5,000 requests per second in 11 AWS Regions. Quotas can be further increased to tens of thousands of requests per second by making a request through the Service Quotas console.<br /> <br /> EventBridge Scheduler is a serverless scheduler that allows you to create, run, and manage billions of scheduled events and tasks, across more than 270",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/2/eventbridge-default-quota-increase/",
-    "published": "2026-03-04T16:00:00+00:00",
+    "title": "Amazon Bedrock now offers Claude Mythos Preview (Gated Research Preview)",
+    "description": "<p>Amazon Bedrock, the platform for building generative AI applications and agents at production scale, now offers Claude Mythos Preview in gated research preview as part of Project Glasswing. Claude Mythos Preview is Anthropic's most advanced AI model to date, representing a fundamentally new model class with state-of-the-art capabilities across cybersecurity, software coding, and complex reasoning tasks. The model can identify sophisticated security vulnerabilities in software and demonstrate ",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-bedrock-claude-mythos/",
+    "published": "2026-04-07T17:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "bedrock",
-    "title": "Policy in Amazon Bedrock AgentCore is now generally available",
-    "description": "<p>Policy in Amazon Bedrock&nbsp;AgentCore&nbsp;is now generally available, providing organizations with centralized, fine-grained controls for agent-tool interactions.&nbsp;Policy&nbsp;operates&nbsp;outside your&nbsp;agent&nbsp;code, enabling security,&nbsp;compliance, and operations teams to define&nbsp;tool&nbsp;access and&nbsp;input&nbsp;validation&nbsp;rules&nbsp;without&nbsp;modifying&nbsp;agent code.&nbsp;Teams can author policies using natural language that automatically converts to Ceda",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/",
-    "published": "2026-03-03T18:00:00+00:00",
+    "title": "Amazon Bedrock Guardrails announces general availability of cross-account safeguards",
+    "description": "<p>Amazon Bedrock Guardrails now enables centralized enforcement of safety controls across all AWS accounts within an organization through cross-account safeguards. Amazon Bedrock Guardrails offers configurable safeguards that help block up to 88% of harmful multimodal content from both input prompts and model responses, while filtering hallucinated responses from foundation models. Central security teams and administrators can now automatically implement these controls for all foundation model ",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/04/bedrock-guardrails-cross-account-safeguards/",
+    "published": "2026-04-03T19:15:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
-    "service": "eventbridge",
-    "title": "AWS Network Firewall now supports firewall state change notifications through Amazon EventBridge",
-    "description": "<p>AWS Network Firewall now integrates with Amazon EventBridge to provide real-time notifications for firewall state changes and configuration updates. This new capability enables you to monitor critical firewall operations including firewall configuration updates and endpoint status modifications across your network security infrastructure. You gain immediate visibility into changes affecting AWS Managed Rules, Partner Managed Rules, and firewall configurations.<br /> <br /> With EventBridge in",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/firewall-state-change-notifications/",
-    "published": "2026-02-27T19:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "eventbridge",
-    "title": "AWS Marketplace now supports multiple purchases of SaaS & Professional Services products from the same account",
-    "description": "<p>AWS Marketplace now supports Concurrent Agreements for SaaS and Professional Services products, enabling buyers to make multiple purchases for the same product within a single AWS account. Previously, buyers could only maintain one active agreement per product per AWS account, requiring sellers to use workarounds to support expansion deals. Concurrent Agreements removes this constraint, allowing different business units to procure independently with their own negotiated terms and pricing.</p>",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/concurrent-agreements-february/",
-    "published": "2026-02-26T21:00:00+00:00",
+    "service": "bedrock",
+    "title": "Amazon CloudWatch expands auto-enablement to Amazon CloudFront logs and 3 additional resource types",
+    "description": "<p>Amazon CloudWatch now supports automatic enablement of Amazon CloudFront Standard access logs, AWS Security Hub CSPM finding logs, and Amazon Bedrock AgentCore memory and gateway logs and traces to CloudWatch Logs. Customers can set up enablement rules that automatically configure telemetry for both existing and newly created resources, ensuring consistent monitoring coverage without manual setup.</p> \n<p>Enablement rules can be scoped to the organization, specific accounts, or specific resou",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-cloudwatch-cloudfront-enablement/",
+    "published": "2026-04-02T17:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "cloudformation",
-    "title": "Amazon Cognito enhances client secret management with secret rotation and custom secrets",
-    "description": "<p>Amazon Cognito enhances client secret lifecycle management for app clients of Cognito user pools by adding client secret rotation and support for custom client secrets. Cognito helps you implement secure sign-in and access control for users, AI agents, and microservices in minutes, and a Cognito app client is a configuration that interacts with one mobile or web application that authenticates with Cognito. Previously, Cognito automatically generated all app client secrets. With this launch, i",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-cognito-client-secret-lifecycle/",
-    "published": "2026-02-26T17:00:00+00:00",
+    "title": "Amazon ECS announces Managed Daemons for ECS Managed Instances",
+    "description": "<p>Amazon ECS announces Managed Daemons for <a href=\"https://aws.amazon.com/ecs/managed-instances/\">ECS Managed Instances</a>, enabling organizations to centrally deploy and manage software agents such as security, observability, and networking across their container infrastructure independent of application deployments. By decoupling daemon lifecycle management from application operations, Managed Daemons helps guarantee reliable agent coverage across all workloads, simplifies deployments and v",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-ecs-managed-daemons/",
+    "published": "2026-04-01T21:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
-    "service": "cognito",
-    "title": "Amazon Cognito enhances client secret management with secret rotation and custom secrets",
-    "description": "<p>Amazon Cognito enhances client secret lifecycle management for app clients of Cognito user pools by adding client secret rotation and support for custom client secrets. Cognito helps you implement secure sign-in and access control for users, AI agents, and microservices in minutes, and a Cognito app client is a configuration that interacts with one mobile or web application that authenticates with Cognito. Previously, Cognito automatically generated all app client secrets. With this launch, i",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-cognito-client-secret-lifecycle/",
-    "published": "2026-02-26T17:00:00+00:00",
+    "service": "bedrock",
+    "title": "Amazon S3 Vectors expands to 17 additional AWS Regions",
+    "description": "<p>Amazon S3 Vectors is now available in 17 additional AWS Regions: Africa (Cape Town), Asia Pacific (Hong Kong), Asia Pacific (Hyderabad), Asia Pacific (Jakarta), Asia Pacific (Malaysia), Asia Pacific (Melbourne), Asia Pacific (New Zealand), Asia Pacific (Osaka), Asia Pacific (Taipei), Asia Pacific (Thailand), Canada West (Calgary), Europe (Milan), Europe (Spain), Europe (Zurich), Mexico (Central), South America (Sao Paulo), and US West (N. California).</p> \n<p>Amazon S3 Vectors is the first cl",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/s3-vectors-expands-17-regions/",
+    "published": "2026-03-31T17:28:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "bedrock",
+    "title": "Amazon Bedrock AgentCore Evaluations is now generally available",
+    "description": "<p>Amazon Bedrock AgentCore Evaluations is now generally available, providing automated quality assessment for AI agents. Evaluations enables developers to monitor agent quality through continuous evaluation of production traffic, validate changes through testing workflows, and measure agent performance against defined expectations. AgentCore Evaluations offers two evaluation types. Online evaluation continuously monitors agent performance in production by sampling and scoring live traces. On-de",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/",
+    "published": "2026-03-31T16:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   }
