@@ -1,82 +1,106 @@
 [
   {
-    "service": "cloudformation",
-    "title": "Accelerate Lambda durable functions development with new Kiro power",
-    "description": "<p>Today, AWS announces the Lambda durable functions Kiro power, bringing Lambda durable function development expertise to agentic AI development in Kiro. With this power, you can build resilient, long-running multi-step applications and AI workflows faster with AI agent-assisted development directly in your local development environment.</p> \n<p>When you work with durable functions, the AI agent dynamically loads relevant guidance and development expertise. This includes replay model best pract",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/lambda-durable-kiro-power/",
-    "published": "2026-03-05T07:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
+    "service": "lambda",
+    "title": "AWS managed policy update",
+    "description": "Lambda updated the <code class=\"code\">AWSLambdaManagedEC2ResourceOperator</code> managed policy to add the <code class=\"code\">ec2:DescribeVpcEncryptionControls</code> permission. For details, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/security-iam-awsmanpol.html#lambda-security-iam-awsmanpol-updates\">Lambda updates to AWS managed policies</a>.",
+    "link": "https://docs.aws.amazon.com/lambda/latest/dg/security-iam-awsmanpol.html#lambda-security-iam-awsmanpol-updates",
+    "published": "2026-04-23T19:00:00+00:00",
+    "significant": true
   },
   {
-    "service": "cloudformation",
-    "title": "AWS simplifies IAM role creation and setup in service workflows",
-    "description": "<p><a href=\"https://aws.amazon.com/iam/\">AWS Identity and Access Management (IAM)</a> now makes it easier to create and configure IAM roles directly within service workflows, allowing you to customize role permissions without switching between browser tabs. Now, when you are performing console tasks that involve role configuration, a new panel will appear to set the permissions required.<br /> <br /> IAM roles enable secure AWS cross-service connections using temporary credentials, eliminating t",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/aws-simplifies-iam-role-creation-and-setup/",
-    "published": "2026-03-04T20:50:00+00:00",
+    "service": "s3",
+    "title": "Amazon S3 Express One Zone adds new AWS managed policies",
+    "description": "Amazon S3 Express One Zone added new AWS-managed policies called \n\t\t\t\t<code class=\"code\"> AmazonS3ExpressFullAccess</code> and <code class=\"code\">AmazonS3ExpressReadOnlyAccess</code>. For more information, see \n\t\t\t\t<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-one-zone-security-iam-awsmanpol.html\">AWS managed policies for Amazon S3 Express One Zone</a>.",
+    "link": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/WhatsNew.html",
+    "published": "2026-04-03T19:00:00+00:00",
+    "significant": true
+  },
+  {
+    "service": "rds",
+    "title": "RDS Custom for Oracle",
+    "description": "End of support notice: On March 31, 2027, AWS will end support for Amazon RDS Custom for Oracle. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/RDS-Custom-for-Oracle-end-of-support.html\">RDS Custom for Oracle end of\n      support</a>.",
+    "link": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/RDS-Custom-for-Oracle-end-of-support.html",
+    "published": "2028-03-31T19:00:00+00:00",
+    "significant": true
+  },
+  {
+    "service": "bedrock",
+    "title": "Amazon Bedrock AgentCore is now available in the South America (S\u00e3o Paulo) Region",
+    "description": "<p>Amazon Bedrock AgentCore is now available in the AWS South America (S\u00e3o Paulo) Region. Amazon Bedrock AgentCore is the platform to build, connect, and optimize agents. It helps engineers ship agents fast with any framework and any model, connect them to enterprise systems and tools, and optimize them continuously, with security enforced at the infrastructure layer that agents can't bypass.<br /> <br /> With this expansion, customers in South America can deploy and operate agents closer to the",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/agentcore-sao-paulo-region/",
+    "published": "2026-05-01T22:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "bedrock",
-    "title": "Amazon Lightsail now offers OpenClaw, a private self-hosted AI assistant",
-    "description": "<p>Amazon Lightsail now lets you deploy OpenClaw, a private self-hosted AI assistant, on your own cloud infrastructure in a simple and secure manner.<br /> <br /> Every Lightsail OpenClaw instance ships with built-in security controls, pre-configured and ready to use. Sandboxing isolates each agent session for improved security posture. One-click HTTPS access puts the OpenClaw dashboard in your browser securely, without requiring manual TLS configuration. Device pairing authentication ensures on",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-lightsail-openclaw/",
-    "published": "2026-03-04T17:11:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "eventbridge",
-    "title": "Amazon EventBridge Scheduler now provides a higher default quota for the CreateSchedule API",
-    "description": "<p>Amazon EventBridge Scheduler now has a higher default service quota for the CreateSchedule API action. The default CreateSchedule request rate quota is now 5,000 requests per second in 11 AWS Regions. Quotas can be further increased to tens of thousands of requests per second by making a request through the Service Quotas console.<br /> <br /> EventBridge Scheduler is a serverless scheduler that allows you to create, run, and manage billions of scheduled events and tasks, across more than 270",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/2/eventbridge-default-quota-increase/",
-    "published": "2026-03-04T16:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "bedrock",
-    "title": "Policy in Amazon Bedrock AgentCore is now generally available",
-    "description": "<p>Policy in Amazon Bedrock&nbsp;AgentCore&nbsp;is now generally available, providing organizations with centralized, fine-grained controls for agent-tool interactions.&nbsp;Policy&nbsp;operates&nbsp;outside your&nbsp;agent&nbsp;code, enabling security,&nbsp;compliance, and operations teams to define&nbsp;tool&nbsp;access and&nbsp;input&nbsp;validation&nbsp;rules&nbsp;without&nbsp;modifying&nbsp;agent code.&nbsp;Teams can author policies using natural language that automatically converts to Ceda",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/",
-    "published": "2026-03-03T18:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "eventbridge",
-    "title": "AWS Network Firewall now supports firewall state change notifications through Amazon EventBridge",
-    "description": "<p>AWS Network Firewall now integrates with Amazon EventBridge to provide real-time notifications for firewall state changes and configuration updates. This new capability enables you to monitor critical firewall operations including firewall configuration updates and endpoint status modifications across your network security infrastructure. You gain immediate visibility into changes affecting AWS Managed Rules, Partner Managed Rules, and firewall configurations.<br /> <br /> With EventBridge in",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/firewall-state-change-notifications/",
-    "published": "2026-02-27T19:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "eventbridge",
-    "title": "AWS Marketplace now supports multiple purchases of SaaS & Professional Services products from the same account",
-    "description": "<p>AWS Marketplace now supports Concurrent Agreements for SaaS and Professional Services products, enabling buyers to make multiple purchases for the same product within a single AWS account. Previously, buyers could only maintain one active agreement per product per AWS account, requiring sellers to use workarounds to support expansion deals. Concurrent Agreements removes this constraint, allowing different business units to procure independently with their own negotiated terms and pricing.</p>",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/concurrent-agreements-february/",
-    "published": "2026-02-26T21:00:00+00:00",
+    "title": "Amazon Bedrock AgentCore launches capabilities for optimizing agent performance in preview",
+    "description": "<p>Amazon Bedrock AgentCore launches recommendations and two ways to validate performance (batch evaluations and A/B tests). This completes the observe, evaluate, improve loop for AI agents in production. Until now, translating evaluation findings into concrete, validated improvements required manual developer intervention and intuition rather than a systematic approach. With recommendations, batch evaluations and A/B tests, developers now have the tools to act on what evaluations surface.<br />",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/bedrock-agentcore-optimization-preview/",
+    "published": "2026-04-30T15:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "cloudformation",
-    "title": "Amazon Cognito enhances client secret management with secret rotation and custom secrets",
-    "description": "<p>Amazon Cognito enhances client secret lifecycle management for app clients of Cognito user pools by adding client secret rotation and support for custom client secrets. Cognito helps you implement secure sign-in and access control for users, AI agents, and microservices in minutes, and a Cognito app client is a configuration that interacts with one mobile or web application that authenticates with Cognito. Previously, Cognito automatically generated all app client secrets. With this launch, i",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-cognito-client-secret-lifecycle/",
-    "published": "2026-02-26T17:00:00+00:00",
+    "title": "AWS Lambda adds support for Ruby 4.0",
+    "description": "<p>AWS Lambda now supports creating serverless applications using Ruby 4.0. Developers can use Ruby 4.0 as both a managed runtime and a container base image, and AWS will automatically apply updates to the managed runtime and base image as they become available.<br /> <br /> Ruby 4.0 is the latest long-term support (LTS) release of Ruby and is expected to be supported for security and bug fixes until March 2029. In addition to providing access to the latest Ruby language features, the Lambda Run",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/04/aws-lambda-adds-ruby/",
+    "published": "2026-04-30T13:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
-    "service": "cognito",
-    "title": "Amazon Cognito enhances client secret management with secret rotation and custom secrets",
-    "description": "<p>Amazon Cognito enhances client secret lifecycle management for app clients of Cognito user pools by adding client secret rotation and support for custom client secrets. Cognito helps you implement secure sign-in and access control for users, AI agents, and microservices in minutes, and a Cognito app client is a configuration that interacts with one mobile or web application that authenticates with Cognito. Previously, Cognito automatically generated all app client secrets. With this launch, i",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-cognito-client-secret-lifecycle/",
-    "published": "2026-02-26T17:00:00+00:00",
+    "service": "bedrock",
+    "title": "OpenAI GPT OSS and NVIDIA Nemotron Models Available on Amazon Bedrock in AWS GovCloud (US)",
+    "description": "<p>Amazon Bedrock now supports OpenAI's open-weight GPT OSS models (120B and 20B) and NVIDIA Nemotron (Nano 9B v2, Nano 12B v2, Nano 30B, Super 120B) models expanding your ability to build and scale generative AI applications with diverse, high-performance foundation models. This offers the flexibility to leverage OpenAI's and NVIDIA's latest models alongside other leading AI models through a single, unified API\u2014allowing you to select the best model for each specific use case without changing yo",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/04/openai-gpt-oss-nvidia-nemotron-govcloud/",
+    "published": "2026-04-29T15:18:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "bedrock",
+    "title": "Amazon Bedrock now offers OpenAI models, Codex, and Managed Agents (Limited Preview)",
+    "description": "<p>AWS and OpenAI are expanding their partnership to bring frontier&nbsp;intelligence to the&nbsp;infrastructure millions of organizations already trust. Enterprises want the most capable AI models and agents, with the security, operational maturity, and data governance that production&nbsp;workloads demand. Today,&nbsp;we\u2019re&nbsp;bringing those together&nbsp;with&nbsp;three new offerings&nbsp;on&nbsp;Amazon&nbsp;Bedrock, all&nbsp;in&nbsp;limited preview: the latest OpenAI models, Codex, and Man",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/04/bedrock-openai-models-codex-managed-agents/",
+    "published": "2026-04-28T15:00:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "cloudformation",
+    "title": "AWS Lambda Provisioned Mode for Kafka event source mappings (ESMs) now available in AWS Asia Pacific (Taipei) and AWS GovCloud (US) Regions",
+    "description": "<p>AWS Lambda now supports Provisioned Mode for event source mappings (ESMs) that subscribe to Apache Kafka event sources in the Asia Pacific (Taipei), AWS GovCloud (US-East), and AWS GovCloud (US-West) Regions. Provisioned Mode allows you to optimize the throughput of your Kafka ESM by provisioning event polling resources that remain ready to handle sudden spikes in traffic, helping you build highly responsive and scalable event-driven Kafka applications with stringent performance requirements.",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/04/aws-Lambda-provisioned-esm-region-expansion/",
+    "published": "2026-04-24T21:13:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "cloudformation",
+    "title": "General availability of AWS for SAP MCP Server in Amazon Bedrock AgentCore",
+    "description": "<p>Today, we're announcing the General Availability of the <b>AWS for SAP MCP Server on Amazon Bedrock AgentCore, </b>purpose-built to connect AI agents directly to SAP ERP systems, securely and at scale. Built on the Model Context Protocol (MCP) and SAP's Open Data Protocol (OData) standards, this solution addresses the challenge of making SAP business data and processes accessible to AI agents while maintaining enterprise-grade security and comprehensive Observability. Organizations running SA",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/aws-sap-mcp-amazon-bedrock/",
+    "published": "2026-04-23T16:44:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "bedrock",
+    "title": "General availability of AWS for SAP MCP Server in Amazon Bedrock AgentCore",
+    "description": "<p>Today, we're announcing the General Availability of the <b>AWS for SAP MCP Server on Amazon Bedrock AgentCore, </b>purpose-built to connect AI agents directly to SAP ERP systems, securely and at scale. Built on the Model Context Protocol (MCP) and SAP's Open Data Protocol (OData) standards, this solution addresses the challenge of making SAP business data and processes accessible to AI agents while maintaining enterprise-grade security and comprehensive Observability. Organizations running SA",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/aws-sap-mcp-amazon-bedrock/",
+    "published": "2026-04-23T16:44:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "bedrock",
+    "title": "Amazon Bedrock AgentCore adds new features to help developers build agents faster",
+    "description": "<p>Today, Amazon Bedrock AgentCore introduces new features to help developers go from an idea to working agent prototype faster and manage the full agent lifecycle from a single platform: a managed harness (in preview), the AgentCore CLI, and AgentCore skills for coding assistants.</p> \n<p>The managed harness (preview) lets developers define an agent by specifying a model, system prompt, and tools, then run it immediately with no orchestration code required. The harness manages the full agent lo",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/04/agentcore-new-features-to-build-agents-faster/",
+    "published": "2026-04-22T16:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   }
