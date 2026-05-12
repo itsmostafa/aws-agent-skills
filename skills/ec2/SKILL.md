@@ -1,13 +1,30 @@
 ---
 name: ec2
-description: AWS EC2 virtual machine management for instances, AMIs, and networking. Use when launching instances, configuring security groups, managing key pairs, troubleshooting connectivity, or automating instance lifecycle.
-last_updated: "2026-01-07"
+description: >
+  AWS EC2 virtual machine management — instances, security groups, key pairs, AMIs, EBS volumes,
+  Auto Scaling Groups, Spot Instances, Session Manager, placement groups, and instance lifecycle automation.
+
+  Trigger on ANY of these, even when EC2 isn't named explicitly:
+  - Launching or provisioning: "spin up a server", "create a VM", "new instance", "run-instances", mention of instance types (t3, m5, c5, r6, g5, p4d, t4g, c7g, etc.)
+  - SSH / connectivity problems: "connection refused", "connection timed out", "permission denied publickey", "can't connect to my instance", "SSH not working"
+  - Instance management: resize, stop, start, terminate, reboot, change instance type
+  - Cost optimization: stop dev instances overnight, save money on EC2, spot vs on-demand, reserved instances
+  - Auto Scaling: ASG, launch template, mixed instances policy, scale to zero, scheduled scaling
+  - Spot Instances: spot fleet, spot interruption, capacity-optimized, price-capacity-optimized
+  - AMIs and backups: create image, custom AMI, EBS snapshot, DLM lifecycle policy, copy AMI
+  - Monitoring: EC2 CPU utilization, CloudWatch metrics for instance, instance status checks, console output
+  - Access methods: Session Manager, EC2 Instance Connect, bastion host, port forwarding
+  - Security: IMDSv2, instance metadata, IAM role on instance, security group rules
+  - User data and bootstrap scripts, cloud-init
+last_updated: "2026-05-12"
 doc_source: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/
 ---
 
 # AWS EC2
 
-Amazon Elastic Compute Cloud (EC2) provides resizable compute capacity in the cloud. Launch virtual servers, configure networking and security, and manage storage.
+Amazon Elastic Compute Cloud (EC2) provides resizable compute capacity in the cloud.
+
+**Advanced patterns** (Auto Scaling, Spot Fleets, Session Manager, Instance Connect, IMDS, Placement Groups, scheduled scaling): see [instance-management.md](instance-management.md).
 
 ## Table of Contents
 
@@ -24,11 +41,13 @@ Amazon Elastic Compute Cloud (EC2) provides resizable compute capacity in the cl
 
 | Category | Example | Use Case |
 |----------|---------|----------|
-| General Purpose | t3, m6i | Web servers, dev environments |
-| Compute Optimized | c6i | Batch processing, gaming |
-| Memory Optimized | r6i | Databases, caching |
+| General Purpose | t3, m6i, t4g (Graviton) | Web servers, dev environments |
+| Compute Optimized | c6i, c7g (Graviton) | Batch processing, gaming |
+| Memory Optimized | r6i, r7g (Graviton) | Databases, caching |
 | Storage Optimized | i3, d3 | Data warehousing |
 | Accelerated | p4d, g5 | ML, graphics |
+
+Graviton (ARM) instances (t4g, m7g, c7g, r7g) are ~20% cheaper than x86 equivalents for the same performance — worth considering for new workloads.
 
 ### Purchasing Options
 
@@ -36,22 +55,37 @@ Amazon Elastic Compute Cloud (EC2) provides resizable compute capacity in the cl
 |--------|-------------|
 | On-Demand | Pay by the hour/second |
 | Reserved | 1-3 year commitment, up to 72% discount |
-| Spot | Unused capacity, up to 90% discount |
+| Spot | Unused capacity, up to 90% discount — can be interrupted with 2-minute notice |
 | Savings Plans | Flexible commitment-based discount |
 
 ### AMI (Amazon Machine Image)
 
-Template containing OS, software, and configuration for launching instances.
+Template containing OS, software, and configuration for launching instances. Use SSM Parameter Store to look up the latest official AMIs rather than hardcoding IDs:
+
+```bash
+# Latest Amazon Linux 2 AMI
+aws ssm get-parameter \
+  --name /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2 \
+  --query 'Parameter.Value' --output text
+
+# Latest Amazon Linux 2023
+aws ssm get-parameter \
+  --name /aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64 \
+  --query 'Parameter.Value' --output text
+
+# Latest Ubuntu 22.04
+aws ssm get-parameter \
+  --name /aws/service/canonical/ubuntu/server/22.04/stable/current/amd64/hvm/ebs-gp2/ami-id \
+  --query 'Parameter.Value' --output text
+```
 
 ### Security Groups
 
-Virtual firewalls controlling inbound and outbound traffic.
+Virtual firewalls controlling inbound and outbound traffic. Changes take effect immediately — no restart required.
 
 ## Common Patterns
 
 ### Launch an Instance
-
-**AWS CLI:**
 
 ```bash
 # Create key pair
@@ -87,7 +121,14 @@ aws ec2 run-instances \
   --key-name my-key \
   --security-group-ids sg-12345678 \
   --subnet-id subnet-12345678 \
+  --associate-public-ip-address \
   --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=web-server}]'
+
+# Wait until running, then get IP
+aws ec2 wait instance-running --instance-ids i-1234567890abcdef0
+aws ec2 describe-instances \
+  --instance-ids i-1234567890abcdef0 \
+  --query 'Reservations[].Instances[].PublicIpAddress' --output text
 ```
 
 **boto3:**
@@ -120,7 +161,14 @@ print(f"Public IP: {instance.public_ip_address}")
 
 ### User Data Script
 
+> **OS package manager note:**
+> - **Amazon Linux 2**: use `amazon-linux-extras install nginx1 -y` — `yum install nginx` fails because nginx is not in the default AL2 repos
+> - **Amazon Linux 2023**: use `dnf install -y nginx`
+> - **Ubuntu**: use `apt-get install -y nginx`
+> - **Amazon Linux 2 / RHEL**: `httpd` (Apache) is always available via `yum install -y httpd`
+
 ```bash
+# Amazon Linux 2 — nginx via amazon-linux-extras
 aws ec2 run-instances \
   --image-id ami-0123456789abcdef0 \
   --instance-type t3.micro \
@@ -128,12 +176,18 @@ aws ec2 run-instances \
   --security-group-ids sg-12345678 \
   --subnet-id subnet-12345678 \
   --user-data '#!/bin/bash
-    yum update -y
-    yum install -y httpd
-    systemctl start httpd
-    systemctl enable httpd
-    echo "<h1>Hello from $(hostname)</h1>" > /var/www/html/index.html
-  '
+amazon-linux-extras install nginx1 -y
+systemctl start nginx
+systemctl enable nginx
+'
+
+# Amazon Linux 2 — httpd (Apache, simpler alternative)
+# --user-data '#!/bin/bash
+# yum install -y httpd
+# systemctl start httpd
+# systemctl enable httpd
+# echo "<h1>Hello from $(hostname -f)</h1>" > /var/www/html/index.html
+# '
 ```
 
 ### Attach IAM Role
@@ -165,20 +219,43 @@ aws ec2 create-image \
   --no-reboot
 ```
 
-### Spot Instance Request
+### Auto Scaling Group with Spot (Modern Approach)
+
+The recommended way to use Spot Instances at scale is via Auto Scaling Groups with a mixed-instances policy — not the legacy `request-spot-instances` API. This supports instance diversification to minimize interruptions.
+
+See [instance-management.md](instance-management.md) for the full setup. Quick example:
 
 ```bash
-aws ec2 request-spot-instances \
-  --instance-count 1 \
-  --type "one-time" \
-  --launch-specification '{
+# 1. Create launch template with IMDSv2
+aws ec2 create-launch-template \
+  --launch-template-name my-lt \
+  --launch-template-data '{
     "ImageId": "ami-0123456789abcdef0",
-    "InstanceType": "c5.large",
-    "KeyName": "my-key",
     "SecurityGroupIds": ["sg-12345678"],
-    "SubnetId": "subnet-12345678"
-  }' \
-  --spot-price "0.05"
+    "IamInstanceProfile": {"Name": "my-profile"},
+    "MetadataOptions": {"HttpTokens": "required", "HttpEndpoint": "enabled"}
+  }'
+
+# 2. Create ASG with mixed-instances (Spot + On-Demand diversification)
+aws autoscaling create-auto-scaling-group \
+  --auto-scaling-group-name my-asg \
+  --min-size 0 --max-size 20 --desired-capacity 2 \
+  --vpc-zone-identifier "subnet-111,subnet-222" \
+  --mixed-instances-policy '{
+    "LaunchTemplate": {
+      "LaunchTemplateSpecification": {"LaunchTemplateName": "my-lt", "Version": "$Latest"},
+      "Overrides": [
+        {"InstanceType": "c5.xlarge"},
+        {"InstanceType": "c5.2xlarge"},
+        {"InstanceType": "c5a.xlarge"}
+      ]
+    },
+    "InstancesDistribution": {
+      "OnDemandBaseCapacity": 0,
+      "OnDemandPercentageAboveBaseCapacity": 0,
+      "SpotAllocationStrategy": "capacity-optimized"
+    }
+  }'
 ```
 
 ### EBS Volume Management
@@ -259,7 +336,7 @@ aws ec2 create-snapshot \
 - **Encrypt EBS volumes** at rest
 
 ```bash
-# Require IMDSv2
+# Require IMDSv2 on existing instance
 aws ec2 modify-instance-metadata-options \
   --instance-id i-1234567890abcdef0 \
   --http-tokens required \
@@ -270,19 +347,20 @@ aws ec2 modify-instance-metadata-options \
 
 - **Right-size instances** — monitor and adjust
 - **Use EBS-optimized instances**
-- **Choose appropriate EBS volume type**
-- **Use placement groups** for low-latency networking
+- **Choose appropriate EBS volume type** (gp3 is the default good choice; io2 for high IOPS)
+- **Use placement groups** for low-latency networking (see instance-management.md)
 
 ### Cost Optimization
 
-- **Use Spot Instances** for fault-tolerant workloads
+- **Use Spot Instances** for fault-tolerant workloads (batch, ML training, CI)
 - **Stop/terminate unused instances**
-- **Use Reserved Instances** for steady-state workloads
+- **Use Reserved Instances or Savings Plans** for steady-state workloads
 - **Delete unused EBS volumes and snapshots**
+- **Consider Graviton (t4g, m7g, c7g)** — ~20% cheaper for same performance
 
 ### Reliability
 
-- **Use Auto Scaling Groups** for high availability
+- **Use Auto Scaling Groups** for high availability (see instance-management.md)
 - **Deploy across multiple AZs**
 - **Use Elastic Load Balancer** for traffic distribution
 - **Implement health checks**
@@ -291,28 +369,71 @@ aws ec2 modify-instance-metadata-options \
 
 ### Cannot SSH to Instance
 
-**Checklist:**
+**First: identify the error type — it points to different root causes:**
 
-1. Security group allows SSH (port 22) from your IP
-2. Instance has public IP or use bastion/SSM
-3. Key pair matches instance
-4. Instance is running
-5. Network ACL allows traffic
+| Error | What it means | Primary suspects |
+|-------|--------------|-----------------|
+| `Connection refused` | Network is reachable, but SSH daemon is not listening | sshd crashed, sshd not installed, OS firewall (ufw/iptables) blocking, wrong port |
+| `Connection timed out` | Packets never arrive | Security group blocks port 22, NACL blocks traffic, no public IP, wrong IP |
+| `Permission denied` | Connected, but auth failed | Wrong key file, wrong username, key not authorized |
+
+**Common username by OS:**
+
+| OS | Default SSH user |
+|----|-----------------|
+| Amazon Linux 2 / 2023 | `ec2-user` |
+| Ubuntu | `ubuntu` |
+| Debian | `admin` |
+| CentOS / RHEL | `ec2-user` or `centos` |
+| Windows | `Administrator` |
+
+**Diagnostic commands:**
 
 ```bash
-# Check security group
-aws ec2 describe-security-groups --group-ids sg-12345678
-
-# Check instance state
+# 1. Check instance state and public IP
 aws ec2 describe-instances \
   --instance-ids i-1234567890abcdef0 \
-  --query "Reservations[].Instances[].{State:State.Name,PublicIP:PublicIpAddress}"
+  --query "Reservations[].Instances[].{State:State.Name,PublicIP:PublicIpAddress,StatusChecks:State.Name}"
+
+# 2. Check instance status (system + instance checks)
+aws ec2 describe-instance-status --instance-ids i-1234567890abcdef0
+
+# 3. Check security group rules for port 22
+aws ec2 describe-security-groups \
+  --group-ids sg-12345678 \
+  --query "SecurityGroups[].IpPermissions[?ToPort==\`22\`]"
+
+# 4. Get console output to see boot logs, sshd errors, OOM events
+aws ec2 get-console-output \
+  --instance-id i-1234567890abcdef0 \
+  --latest \
+  --query Output --output text
 ```
 
-**Use Session Manager instead:**
+**If connection refused — get inside via Session Manager to fix sshd:**
+
+```bash
+# Requires SSM agent on instance + AmazonSSMManagedInstanceCore policy
+aws ssm start-session --target i-1234567890abcdef0
+
+# Once inside, diagnose:
+systemctl status ssh        # Ubuntu
+systemctl status sshd       # Amazon Linux
+df -h                       # Check disk full
+sudo sshd -t                # Test sshd config for syntax errors
+sudo journalctl -u ssh -n 50  # Recent sshd logs
+```
+
+**Use Session Manager instead of SSH** (no open ports, no key pair needed):
 
 ```bash
 aws ssm start-session --target i-1234567890abcdef0
+
+# Port forwarding via SSM
+aws ssm start-session \
+  --target i-1234567890abcdef0 \
+  --document-name AWS-StartPortForwardingSession \
+  --parameters '{"portNumber":["22"],"localPortNumber":["2222"]}'
 ```
 
 ### Instance Won't Start
@@ -332,8 +453,6 @@ aws ec2 describe-instances \
 
 ### Instance Unreachable
 
-**Debug:**
-
 ```bash
 # Check instance status
 aws ec2 describe-instance-status \
@@ -341,7 +460,8 @@ aws ec2 describe-instance-status \
 
 # Get console output
 aws ec2 get-console-output \
-  --instance-id i-1234567890abcdef0
+  --instance-id i-1234567890abcdef0 \
+  --latest
 
 # Get screenshot (for Windows/GUI issues)
 aws ec2 get-console-screenshot \
@@ -355,13 +475,14 @@ aws ec2 get-console-screenshot \
 aws ec2 monitor-instances \
   --instance-ids i-1234567890abcdef0
 
-# Check CloudWatch metrics
+# Check CloudWatch metrics (cross-platform date command)
+START=$(date -u -v-1H +%Y-%m-%dT%H:%M:%SZ 2>/dev/null || date -u --date='1 hour ago' +%Y-%m-%dT%H:%M:%SZ)
 aws cloudwatch get-metric-statistics \
   --namespace AWS/EC2 \
   --metric-name CPUUtilization \
   --dimensions Name=InstanceId,Value=i-1234567890abcdef0 \
-  --start-time $(date -d '1 hour ago' -u +%Y-%m-%dT%H:%M:%SZ) \
-  --end-time $(date -u +%Y-%m-%dT%H:%M:%SZ) \
+  --start-time "$START" \
+  --end-time "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
   --period 300 \
   --statistics Average
 ```

@@ -1,0 +1,49 @@
+{
+  "skill_name": "ec2",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm spinning up my first EC2 instance to host a web app. I need a t3.micro running Amazon Linux 2 in us-east-1a with a public IP, ports 22 and 80 open, and nginx installed automatically on launch. I don't have a key pair or security group yet. Give me the complete AWS CLI commands from scratch to get this running.",
+      "expected_output": "Complete AWS CLI commands: key pair creation, security group setup, and run-instances with user data that correctly installs nginx on Amazon Linux 2 using amazon-linux-extras (not yum install nginx, which fails on AL2).",
+      "files": [],
+      "expectations": [
+        "Provides aws ec2 create-key-pair command with --query KeyMaterial and output redirect to .pem file",
+        "Includes chmod 400 on the key file",
+        "Creates a security group with aws ec2 create-security-group",
+        "Adds ingress rule for port 22 (SSH) with authorize-security-group-ingress",
+        "Adds ingress rule for port 80 (HTTP) with authorize-security-group-ingress",
+        "Provides aws ec2 run-instances with --image-id, --instance-type t3.micro, --key-name, --security-group-ids",
+        "User data installs nginx using amazon-linux-extras install nginx1 (NOT yum install nginx, which fails on Amazon Linux 2 since nginx is not in the default repos)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I can't SSH into my EC2 instance. Here's the situation: instance ID is i-0abc1234def56789, it's running Ubuntu 22.04, has a public IP 54.89.23.17, I have the key pair file, port 22 should be open in the security group, but I keep getting 'Connection refused'. This instance was working fine two days ago. Walk me through diagnosing and fixing this.",
+      "expected_output": "Structured troubleshooting that starts by distinguishing 'Connection refused' (sshd down = OS-level) from 'Connection timed out' (firewall/network), uses specific CLI commands for diagnosis, and offers Session Manager as an agentless fallback to fix sshd.",
+      "files": [],
+      "expectations": [
+        "Distinguishes 'Connection refused' from 'Connection timed out' — explaining that 'refused' means the network path is open but sshd is not listening (OS-level issue, not a firewall issue)",
+        "Provides aws ec2 describe-security-groups or describe-instances command to inspect security group rules",
+        "Shows aws ec2 get-console-output command to inspect boot logs (with --latest flag preferred)",
+        "Mentions Session Manager (aws ssm start-session) as a way to access the instance without SSH to fix the sshd daemon",
+        "Mentions the correct username for Ubuntu is 'ubuntu' (not 'ec2-user')",
+        "Addresses sshd-specific causes: sshd crashed/not running, disk full, or sshd config error — at least one of these"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I need to set up an Auto Scaling Group for ML training jobs that can scale from 0 to 20 Spot Instances. The instances should be c5.xlarge with a fallback to c5.2xlarge for diversification. They need a launch template with IMDSv2 enforced. My VPC ID is vpc-0aabbcc, subnets are subnet-111 and subnet-222, security group is sg-abc, AMI is ami-0deadbeef, and I use instance profile ml-trainer-profile. Give me the full CLI commands to set this up.",
+      "expected_output": "Launch template creation with IMDSv2, then ASG with mixed-instances policy for Spot diversification across c5.xlarge and c5.2xlarge, min=0 max=20, using both subnets.",
+      "files": [],
+      "expectations": [
+        "Creates a launch template with aws ec2 create-launch-template including the provided AMI (ami-0deadbeef), security group (sg-abc), and IAM instance profile (ml-trainer-profile)",
+        "Sets MetadataOptions with HttpTokens required (IMDSv2) in the launch template JSON",
+        "Creates an Auto Scaling Group with aws autoscaling create-auto-scaling-group using --mixed-instances-policy (not the legacy request-spot-instances API)",
+        "Sets min-size 0 and max-size 20 on the ASG",
+        "Uses both subnet IDs (subnet-111 and subnet-222) in vpc-zone-identifier",
+        "Mixed instances policy Overrides array includes both c5.xlarge and c5.2xlarge for instance type diversification",
+        "Sets SpotAllocationStrategy to capacity-optimized or price-capacity-optimized in InstancesDistribution"
+      ]
+    }
+  ]
+}
