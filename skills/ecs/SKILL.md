@@ -98,7 +98,9 @@ cat > task-definition.json << 'EOF'
         "options": {
           "awslogs-group": "/ecs/web-app",
           "awslogs-region": "us-east-1",
-          "awslogs-stream-prefix": "ecs"
+          "awslogs-stream-prefix": "ecs",
+          "mode": "non-blocking",
+          "max-buffer-size": "25m"
         }
       },
       "healthCheck": {
@@ -131,7 +133,8 @@ aws ecs create-service \
     assignPublicIp=DISABLED
   }" \
   --load-balancers "targetGroupArn=arn:aws:elasticloadbalancing:us-east-1:123456789012:targetgroup/web-tg/1234567890123456,containerName=web,containerPort=8080" \
-  --health-check-grace-period-seconds 60
+  --health-check-grace-period-seconds 60 \
+  --deployment-configuration "deploymentCircuitBreaker={enable=true,rollback=true}"
 ```
 
 ### Run Standalone Task
@@ -161,6 +164,63 @@ aws ecs update-service \
   --task-definition web-app:2 \
   --force-new-deployment
 ```
+
+### Fargate Spot with SQS-Based Scaling
+
+Use `FARGATE_SPOT` for batch/queue workloads to cut costs ~70%. Always include a fallback to regular `FARGATE`.
+
+```bash
+# Create service with Spot + fallback
+aws ecs create-service \
+  --cluster batch-cluster \
+  --service-name queue-processor \
+  --task-definition my-processor:1 \
+  --desired-count 0 \
+  --capacity-provider-strategy \
+    capacityProvider=FARGATE_SPOT,weight=4,base=0 \
+    capacityProvider=FARGATE,weight=1,base=1 \
+  --network-configuration "awsvpcConfiguration={
+    subnets=[subnet-12345678],
+    securityGroups=[sg-12345678],
+    assignPublicIp=DISABLED
+  }"
+
+# Register scalable target (scale to zero when queue empty)
+aws application-autoscaling register-scalable-target \
+  --service-namespace ecs \
+  --resource-id service/batch-cluster/queue-processor \
+  --scalable-dimension ecs:service:DesiredCount \
+  --min-capacity 0 \
+  --max-capacity 20
+
+# Scale-out alarm: messages > 100
+aws cloudwatch put-metric-alarm \
+  --alarm-name queue-scale-out \
+  --metric-name ApproximateNumberOfMessagesVisible \
+  --namespace AWS/SQS \
+  --dimensions Name=QueueName,Value=my-queue \
+  --statistic Average \
+  --period 60 \
+  --evaluation-periods 1 \
+  --threshold 100 \
+  --comparison-operator GreaterThanThreshold \
+  --alarm-actions <scale-out-policy-arn>
+
+# Scale-in alarm: queue empty for 3 periods (conservative to avoid flapping)
+aws cloudwatch put-metric-alarm \
+  --alarm-name queue-scale-in \
+  --metric-name ApproximateNumberOfMessagesVisible \
+  --namespace AWS/SQS \
+  --dimensions Name=QueueName,Value=my-queue \
+  --statistic Average \
+  --period 60 \
+  --evaluation-periods 3 \
+  --threshold 0 \
+  --comparison-operator LessThanOrEqualToThreshold \
+  --alarm-actions <scale-in-policy-arn>
+```
+
+**Fargate Spot interruption handling:** Spot tasks receive a SIGTERM 2 minutes before termination. Catch it in your application for graceful shutdown. For SQS consumers, call `ChangeMessageVisibility` on in-flight messages so they return to the queue rather than timing out.
 
 ### Auto Scaling
 
@@ -311,6 +371,31 @@ aws ecs describe-tasks \
 - Health check failing
 - Application crashing
 - Out of memory
+
+### Live Debugging with ECS Exec
+
+Connect directly to a running container without SSH. Requires `enableExecuteCommand: true` on the service and the SSM agent in your container image (included in most base images).
+
+```bash
+# Enable on existing service
+aws ecs update-service \
+  --cluster my-cluster \
+  --service web-service \
+  --enable-execute-command
+
+# Get a shell in a running task
+TASK_ARN=$(aws ecs list-tasks --cluster my-cluster --service-name web-service \
+  --query 'taskArns[0]' --output text)
+
+aws ecs execute-command \
+  --cluster my-cluster \
+  --task $TASK_ARN \
+  --container web \
+  --interactive \
+  --command "/bin/sh"
+```
+
+**Requirements:** Task role must have `ssmmessages:CreateControlChannel`, `ssmmessages:CreateDataChannel`, `ssmmessages:OpenControlChannel`, `ssmmessages:OpenDataChannel` permissions.
 
 ### Service Stuck Deploying
 
