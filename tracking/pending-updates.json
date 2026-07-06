@@ -2,17 +2,33 @@
   {
     "service": "lambda",
     "title": "AWS managed policy update",
-    "description": "Lambda updated the <code class=\"code\">AWSLambdaManagedEC2ResourceOperator</code> managed policy to add the <code class=\"code\">ec2:DescribeVpcEncryptionControls</code> permission. For details, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/security-iam-awsmanpol.html#lambda-security-iam-awsmanpol-updates\">Lambda updates to AWS managed policies</a>.",
+    "description": "Lambda added a new AWS managed policy (<code class=\"code\">AWSLambdaNetworkConnectorOperatorPolicy</code>) to grant permissions to create and administer elastic network interface (ENI) resources managed by the Lambda Network Connector. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/security-iam-awsmanpol.html#lambda-security-iam-awsmanpol-updates\">Lambda updates to AWS managed policies</a>.",
     "link": "https://docs.aws.amazon.com/lambda/latest/dg/security-iam-awsmanpol.html#lambda-security-iam-awsmanpol-updates",
-    "published": "2026-04-23T19:00:00+00:00",
+    "published": "2026-06-19T19:00:00+00:00",
     "significant": true
   },
   {
-    "service": "s3",
-    "title": "Amazon S3 Express One Zone adds new AWS managed policies",
-    "description": "Amazon S3 Express One Zone added new AWS-managed policies called \n\t\t\t\t<code class=\"code\"> AmazonS3ExpressFullAccess</code> and <code class=\"code\">AmazonS3ExpressReadOnlyAccess</code>. For more information, see \n\t\t\t\t<a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-one-zone-security-iam-awsmanpol.html\">AWS managed policies for Amazon S3 Express One Zone</a>.",
-    "link": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/WhatsNew.html",
-    "published": "2026-04-03T19:00:00+00:00",
+    "service": "lambda",
+    "title": "AWS managed policy update",
+    "description": "Lambda updated the <code class=\"code\">AWSLambdaManagedEC2ResourceOperator</code> managed policy to add Amazon CloudWatch permissions (<code class=\"code\">logs:CreateLogGroup</code>, <code class=\"code\">logs:CreateLogStream</code>, <code class=\"code\">logs:PutLogEvents</code>). For details, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/security-iam-awsmanpol.html#lambda-security-iam-awsmanpol-updates\">Lambda updates to AWS managed policies</a>.",
+    "link": "https://docs.aws.amazon.com/lambda/latest/dg/security-iam-awsmanpol.html#lambda-security-iam-awsmanpol-updates",
+    "published": "2026-06-10T19:00:00+00:00",
+    "significant": true
+  },
+  {
+    "service": "eks",
+    "title": "AWS managed policy updates",
+    "description": "Added new API action <code class=\"code\">ec2:DescribeInstanceTypes</code> to <code class=\"code\">AmazonEBSCSIDriverPolicy</code> to enable the EBS CSI Driver to dynamically retrieve volume limit/card information at runtime.",
+    "link": "https://docs.aws.amazon.com/eks/latest/userguide/security-iam-awsmanpol.html",
+    "published": "2026-05-12T19:00:00+00:00",
+    "significant": true
+  },
+  {
+    "service": "cloudwatch",
+    "title": "Internet Monitor publishes local health events to Amazon EventBridge",
+    "description": "Internet Monitor now publishes local health events to Amazon EventBridge, in addition to overall (global) health events.\n          Local health events have an impact type of <code class=\"code\">LOCAL_AVAILABILITY</code> or <code class=\"code\">LOCAL_PERFORMANCE</code>.",
+    "link": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-IM-EventBridge-integration.html",
+    "published": "2026-05-20T19:00:00+00:00",
     "significant": true
   },
   {
@@ -24,119 +40,145 @@
     "significant": true
   },
   {
-    "service": "bedrock",
-    "title": "AWS Capabilities by Region now supports availability notifications",
-    "description": "<p>Today, AWS announces availability notifications for AWS Capabilities by Region in AWS Builder Center, a new subscription-based system that automatically alerts builders when&nbsp;an&nbsp;AWS service(s)&nbsp;and/or&nbsp;features(s)&nbsp;become available in their target Regions.&nbsp;Availability notifications&nbsp;make&nbsp;it easy for builders to&nbsp;track availability&nbsp;of&nbsp;1,500+&nbsp;services and features across&nbsp;37&nbsp;AWS&nbsp;Regions,&nbsp;accelerating&nbsp;infrastructure p",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/aws-regional-planning-tool-notification",
-    "published": "2026-05-07T17:48:00+00:00",
-    "significant": true,
-    "source": "whats-new"
+    "service": "secrets-manager",
+    "title": "Update to AWS managed policy",
+    "description": "The <code class=\"code\">AWSSecretsManagerClientReadOnlyAccess</code> managed policy now includes <code class=\"code\">BatchGetSecretValue</code> and <code class=\"code\">ListSecrets</code> permissions. For information, see <a href=\"https://docs.aws.amazon.com/secretsmanager/latest/userguide/reference_available-policies.html#security-iam-awsmanpol-updates\">Secrets Manager updates to AWS managed policies</a>.",
+    "link": "https://docs.aws.amazon.com/secretsmanager/latest/userguide/document-history.html",
+    "published": "2026-06-02T19:00:00+00:00",
+    "significant": true
   },
   {
     "service": "bedrock",
-    "title": "Agents that transact: Amazon Bedrock AgentCore now includes Payments (preview)",
-    "description": "<p>Today, Amazon Bedrock AgentCore announces the preview of AgentCore payments, enabling AI agents to autonomously access and pay for APIs, MCP servers, web content, and other agents. Built in partnership with Coinbase and Stripe, AgentCore payments is the first managed payment capabilities purpose-built for autonomous agents, handling the full payment lifecycle from wallet authentication through transaction execution to spending governance and observability. As AI agents become more capable and",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/04/amazon-bedrock-agentcore-payments-preview",
-    "published": "2026-05-07T12:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "bedrock",
-    "title": "Amazon ElastiCache now supports real-time hybrid search with vector and full-text",
-    "description": "<p><a href=\"https://aws.amazon.com/elasticache/\" rel=\"noopener noreferrer\" target=\"_blank\">Amazon ElastiCache</a> now supports real-time hybrid search that combines vector similarity with full-text search in a single query, without a separate search service. Applications can combine semantic meaning with exact keyword matching that captures both intent and precise terms to deliver more relevant results than either method alone. Customers can use ElastiCache to combine full-text and vector simila",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/amazon-elasticache-hybrid-search/",
-    "published": "2026-05-06T19:00:00+00:00",
+    "title": "Amazon Bedrock AgentCore increases default runtime quota limits",
+    "description": "<p>Amazon Bedrock AgentCore has increased the default runtime quota limits, giving customers greater capacity to scale their agent-based workloads. AgentCore is the platform for developers to build, connect, and optimize AI agents.</p> \n<p>The new default limits support up to 5,000 active concurrent sessions in US East (N. Virginia) and US West (Oregon), and 2,500 in all other supported Regions. All <a href=\"https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-regions.html\">AW",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-bedrock-agentcore-increases-default-runtime-quota-limits/",
+    "published": "2026-07-01T22:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "cloudformation",
-    "title": "Announcing Agent Toolkit for AWS \u2014 help AI coding agents build effectively on AWS",
-    "description": "<p>Today, AWS is launching the Agent Toolkit for AWS, a production-ready suite of tools and guidance that helps AI coding agents build on AWS with fewer errors, lower token costs, and enterprise-grade security controls. The Agent Toolkit for AWS is the successor to the MCP servers, plugins, and skills available on <a href=\"https://github.com/awslabs\">AWS Labs</a>.<br /> <br /> Developers using coding agents to build on AWS often find that their agents struggle with complex multi-service workflow",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/agent-toolkit/",
-    "published": "2026-05-06T12:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "bedrock",
-    "title": "Announcing Agent Toolkit for AWS \u2014 help AI coding agents build effectively on AWS",
-    "description": "<p>Today, AWS is launching the Agent Toolkit for AWS, a production-ready suite of tools and guidance that helps AI coding agents build on AWS with fewer errors, lower token costs, and enterprise-grade security controls. The Agent Toolkit for AWS is the successor to the MCP servers, plugins, and skills available on <a href=\"https://github.com/awslabs\">AWS Labs</a>.<br /> <br /> Developers using coding agents to build on AWS often find that their agents struggle with complex multi-service workflow",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/agent-toolkit/",
-    "published": "2026-05-06T12:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "bedrock",
-    "title": "Amazon Bedrock AgentCore is now available in AWS GovCloud (US-West)",
-    "description": "<p>Amazon Bedrock AgentCore brings enterprise-grade agentic AI capabilities to workloads with elevated compliance needs in the AWS GovCloud (US-West) Region. AgentCore is a platform for building, deploying, and operating AI agents securely at scale\u2014without managing infrastructure. With AgentCore, organizations can accelerate agents from prototype to production using any framework and any model, while maintaining the security and compliance controls required for government and regulated workloads",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/bedrock-agentcore-launch-aws-govcloud-us/",
-    "published": "2026-05-05T12:00:00+00:00",
+    "title": "Amazon CloudWatch supports creating alarms from log queries",
+    "description": "<p>Amazon CloudWatch allows you to create alarms on log data using log queries, and get alerted on anomalies without leaving your log analysis workflow.</p> \n<p>With today's launch, you can configure an alarm on log query and specify the alarm threshold directly, thereby eliminating the need to first create metric filters or custom metrics as intermediate steps. This streamlines the path to actively monitoring the data in your logs, and monitoring and alerting on it. For example, you can write a",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-cloudwatch-log-alarms/",
+    "published": "2026-07-01T21:30:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "eventbridge",
-    "title": "Amazon OpenSearch Service expands Cluster Insights with a new insight",
-    "description": "<p>Amazon OpenSearch Service expands Cluster Insights availability to all OpenSearch versions and Elasticsearch version 6.8 and above, bringing proactive cluster health and performance visibility through the Console. In addition, a new Unused Index insight helps customers identify indices in an OpenSearch cluster that have had zero search and indexing activity over the past 30 days, and provides actionable recommendation to optimize costs.<br /> <br /> Cluster Insights now supports expanded vers",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/amazon-opensearch-cluster-insights/",
-    "published": "2026-05-05T10:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "eventbridge",
-    "title": "Amazon EventBridge supports data plane logging to AWS CloudTrail",
-    "description": "<p>Today, Amazon EventBridge announces support for logging data plane APIs using AWS CloudTrail, enabling customers to have greater visibility into event bus activity in their AWS account for best practices in security and operational troubleshooting. Amazon EventBridge is a serverless event bus that enables customers to build event-driven applications at scale using events from AWS services, integrated SaaS applications, and custom sources.<br /> <br /> CloudTrail captures API activities relate",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/amazon-eventbridge-data-aws-cloudtrail/",
-    "published": "2026-05-04T16:00:00+00:00",
+    "title": "Amazon CloudWatch supports creating alarms from log queries",
+    "description": "<p>Amazon CloudWatch allows you to create alarms on log data using log queries, and get alerted on anomalies without leaving your log analysis workflow.</p> \n<p>With today's launch, you can configure an alarm on log query and specify the alarm threshold directly, thereby eliminating the need to first create metric filters or custom metrics as intermediate steps. This streamlines the path to actively monitoring the data in your logs, and monitoring and alerting on it. For example, you can write a",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/07/amazon-cloudwatch-log-alarms/",
+    "published": "2026-07-01T21:30:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "bedrock",
-    "title": "Amazon Bedrock AgentCore is now available in the South America (S\u00e3o Paulo) Region",
-    "description": "<p>Amazon Bedrock AgentCore is now available in the AWS South America (S\u00e3o Paulo) Region. Amazon Bedrock AgentCore is the platform to build, connect, and optimize agents. It helps engineers ship agents fast with any framework and any model, connect them to enterprise systems and tools, and optimize them continuously, with security enforced at the infrastructure layer that agents can't bypass.<br /> <br /> With this expansion, customers in South America can deploy and operate agents closer to the",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/agentcore-sao-paulo-region/",
-    "published": "2026-05-01T22:00:00+00:00",
+    "title": "Amazon Bedrock AgentCore now available in four additional AWS Regions",
+    "description": "<p>&nbsp;Amazon Bedrock AgentCore is now available in four additional AWS Regions: Asia Pacific (Bangkok), Asia Pacific (Malaysia), Europe (Milan), and Europe (Spain).&nbsp;Amazon Bedrock AgentCore is the platform to build, connect, and optimize agents. It helps engineers ship agents fast with any framework and any model, connect them to enterprise systems and tools, and optimize them continuously, with security enforced at the infrastructure layer that agents can't bypass.</p> \n<p>With this exp",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-bedrock-agentcore-four-additional-regions/",
+    "published": "2026-07-01T17:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "cloudformation",
-    "title": "General availability of AWS for SAP MCP Server in Amazon Bedrock AgentCore",
-    "description": "<p>Today, we're announcing the General Availability of the <b>AWS for SAP MCP Server on Amazon Bedrock AgentCore, </b>purpose-built to connect AI agents directly to SAP ERP systems, securely and at scale. Built on the Model Context Protocol (MCP) and SAP's Open Data Protocol (OData) standards, this solution addresses the challenge of making SAP business data and processes accessible to AI agents while maintaining enterprise-grade security and comprehensive Observability. Organizations running SA",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/aws-sap-mcp-amazon-bedrock/",
-    "published": "2026-05-01T16:44:00+00:00",
+    "title": "AWS CloudFormation and CDK accelerate development feedback loops with pre-deployment validation on all stack operations",
+    "description": "<p><a href=\"https://docs.aws.amazon.com/cloudformation/\">AWS CloudFormation</a> customers can now get immediate feedback on deployment errors in seconds, eliminating the need to wait through a full provision-and-rollback cycle to discover preventable failures. CloudFormation now runs <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/validate-stack-deployments.html\">pre-deployment validation</a> on <a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/AP",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-cloudformation/",
+    "published": "2026-06-30T21:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "bedrock",
-    "title": "General availability of AWS for SAP MCP Server in Amazon Bedrock AgentCore",
-    "description": "<p>Today, we're announcing the General Availability of the <b>AWS for SAP MCP Server on Amazon Bedrock AgentCore, </b>purpose-built to connect AI agents directly to SAP ERP systems, securely and at scale. Built on the Model Context Protocol (MCP) and SAP's Open Data Protocol (OData) standards, this solution addresses the challenge of making SAP business data and processes accessible to AI agents while maintaining enterprise-grade security and comprehensive Observability. Organizations running SA",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/aws-sap-mcp-amazon-bedrock/",
-    "published": "2026-05-01T16:44:00+00:00",
+    "title": "AWS Security Hub CSPM launches AI Security Best Practices standard with 31 automated controls",
+    "description": "<p>Today, AWS Security Hub CSPM announces the AI Security Best Practices standard, a set of 31 automated security controls that detect when your deployed AI resources do not align with security best practices. Developed by AWS security experts, this standard helps you continuously evaluate your Amazon Bedrock, Amazon Bedrock AgentCore, and Amazon SageMaker workloads against recommended security configurations\u2014without requiring manual assessments or custom rule authoring.<br /> <br /> The AI Secu",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-security-hub-cspm-ai-security/",
+    "published": "2026-06-30T16:17:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "bedrock",
-    "title": "Amazon Bedrock AgentCore launches capabilities for optimizing agent performance in preview",
-    "description": "<p>Amazon Bedrock AgentCore launches recommendations and two ways to validate performance (batch evaluations and A/B tests). This completes the observe, evaluate, improve loop for AI agents in production. Until now, translating evaluation findings into concrete, validated improvements required manual developer intervention and intuition rather than a systematic approach. With recommendations, batch evaluations and A/B tests, developers now have the tools to act on what evaluations surface.<br />",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/05/bedrock-agentcore-optimization-preview/",
-    "published": "2026-04-30T15:00:00+00:00",
+    "title": "Claude Sonnet 5 is now available on AWS",
+    "description": "<p>AWS now offers Claude Sonnet 5 - Anthropic's most capable Sonnet model and the first Sonnet model of Anthropic\u2019s latest generation - bringing top-tier intelligence at Sonnet pricing for coding, agents, and everyday professional work at scale.</p> \n<p>Claude Sonnet 5 delivers strong performance across coding, professional work, and agentic tasks while maintaining the balance of capability, cost, and speed that teams get from Sonnet. For coding, it navigates large codebases, lands multi-file ch",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/claude-sonnet-5-now-available-on-aws",
+    "published": "2026-06-30T16:00:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "cognito",
+    "title": "AWS Service Availability Updates",
+    "description": "<p>We\u2019re announcing availability changes to the following AWS services and features.<br /> <br /> Services moving to Maintenance</p> \n<p>Services moving to maintenance will no longer be accessible to new customers starting July 30, 2026. Customers already using these services and features can continue to do so. AWS will continue to operate and support these services and features. We recommend that customers learn about the changes in the product pages and documentation.</p> \n<p>\u00b7&nbsp;&nbsp;&nbs",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-service-availability/",
+    "published": "2026-06-30T07:00:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "bedrock",
+    "title": "AWS Service Availability Updates",
+    "description": "<p>We\u2019re announcing availability changes to the following AWS services and features.<br /> <br /> Services moving to Maintenance</p> \n<p>Services moving to maintenance will no longer be accessible to new customers starting July 30, 2026. Customers already using these services and features can continue to do so. AWS will continue to operate and support these services and features. We recommend that customers learn about the changes in the product pages and documentation.</p> \n<p>\u00b7&nbsp;&nbsp;&nbs",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-service-availability/",
+    "published": "2026-06-30T07:00:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "bedrock",
+    "title": "AWS WAF adds support for Amazon Bedrock AgentCore Gateway",
+    "description": "<p>Today, AWS announces general availability of AWS Web Application Firewall (AWS WAF) protection for Amazon Bedrock AgentCore Gateway, enabling you to protect your agentic AI workloads from common web exploits and abuse. As enterprises move agentic applications from prototype to production, this launch gives security and platform teams ability to apply consistent, customizable web protections at the Gateway layer.</p> \n<p>You can now associate an AWS WAF protection pack with your AgentCore Gate",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-waf-amazon-bedrock-agentcore/",
+    "published": "2026-06-29T22:00:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "bedrock",
+    "title": "OpenAI GPT, OpenAI GPT OSS, and NVIDIA Nemotron models on Amazon Bedrock receive FedRAMP High and DoD IL-4/5 approval in AWS GovCloud (US)",
+    "description": "<p>OpenAI GPT, OpenAI GPT OSS, and NVIDIA Nemotron models are now FedRAMP High and Department of Defense Cloud Computing Security Requirements Guide (DoD CC SRG) Impact Level (IL) 4 and 5 approved within Amazon Bedrock in the AWS GovCloud (US) Regions.</p> \n<p>Federal agencies, public sector organizations, and other enterprises with FedRAMP High and DoD CC SRG IL-4/5 compliance requirements can now use these models on Amazon Bedrock to build and scale generative AI applications with confidence t",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/addl-bedrock-model-fedramp-il-5-govcloud",
+    "published": "2026-06-25T21:00:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "cognito",
+    "title": "Amazon Cognito now supports customer managed key for encryption at rest",
+    "description": "<p>Amazon Cognito now supports customer managed keys in AWS Key Management Service (KMS) for encrypting user pool data at rest. While AWS owned keys are used by default to protect your data, customer managed keys give you full control over the encryption keys, helping you achieve your organization's data governance objectives.&nbsp;</p> \n<p>&nbsp;</p> \n<p>With customer managed keys, you can define organizational policies and revoke access to encrypted data by disabling or deleting your key. You ",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-cognito-customer-managed-key",
+    "published": "2026-06-23T17:00:46+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "cloudformation",
-    "title": "AWS Lambda adds support for Ruby 4.0",
-    "description": "<p>AWS Lambda now supports creating serverless applications using Ruby 4.0. Developers can use Ruby 4.0 as both a managed runtime and a container base image, and AWS will automatically apply updates to the managed runtime and base image as they become available.<br /> <br /> Ruby 4.0 is the latest long-term support (LTS) release of Ruby and is expected to be supported for security and bug fixes until March 2029. In addition to providing access to the latest Ruby language features, the Lambda Run",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/04/aws-lambda-adds-ruby/",
-    "published": "2026-04-30T13:00:00+00:00",
+    "title": "Amazon CloudWatch launches OTel Container Insights for Amazon EKS",
+    "description": "<p>CloudWatch OTel Container Insights for Amazon EKS collects infrastructure metrics at 30-second granularity using open-source receivers including cAdvisor, Kube State Metrics, and NVIDIA DCGM. Each metric carries OpenTelemetry semantic conventions and Kubernetes labels, making it straightforward to correlate across nodes, pods, and workloads in a single PromQL query.</p> \n<p>Pre-built dashboards give you immediate visibility into cluster health, node performance, and pod-level resource usage. ",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-cloudwatch-otel-amazon-eks/",
+    "published": "2026-06-23T15:12:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "cloudformation",
+    "title": "AWS introduces Lambda MicroVMs for isolated execution of user and AI-generated code",
+    "description": "<p>AWS introduces Lambda MicroVMs, a new serverless compute primitive that provides VM-level isolation, near-instant launch and resume speeds, and state preservation for executing user or AI-generated code. You can now give each user or job their own compute environment to securely run code without managing virtualization infrastructure or choosing between isolation, speed, and state retention.</p> \n<p>Developers are increasingly building multi-tenant applications that execute code supplied by e",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/aws-lambda-microvms/",
+    "published": "2026-06-22T20:37:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "cloudformation",
+    "title": "Amazon ECS announces faster service auto scaling",
+    "description": "<p>Amazon ECS service auto scaling now detects and responds to load changes faster with support for high resolution (20-second) metrics and metric publishing optimizations. In AWS benchmarking tests, time to trigger scale-out improved from 363 seconds to 86 seconds (76% faster, 4.2x), and total time to scale and provision new tasks improved from 386 seconds to 109 seconds (72% faster, 3.5x). Faster service auto scaling also enables you to reduce baseline capacity and lower compute costs while ma",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-ecs-faster-autoscaling/",
+    "published": "2026-06-18T21:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   }
