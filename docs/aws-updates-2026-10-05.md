@@ -1,0 +1,36 @@
+# AWS documentation updates - 2026-10-05
+
+Total updates: 6
+
+## bedrock
+
+- [OpenAI GPT-6 Astra now supports UltraFast mode on Amazon Bedrock](https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-ultrafast-on-amazon-bedrock/) — published 2026-09-30T19:00:00+00:00
+  
+  <p>&nbsp;Today, AWS announces the availability of UltraFast mode for GPT-6 Astra from OpenAI on Amazon Bedrock. Ultrafast is a premium speed tier for GPT-6 Astra built for workloads where speed matters most. According to OpenAI, Ultrafast delivers up to 6x faster inference in the API, with up to 300 tokens per second. The Amazon Bedrock inference engine delivers the performance, security, and reliability required for production workloads.</p> <p>Use GPT-6 Astra Ultrafast for latency-sensitive ap
+
+- [Amazon Bedrock Managed Agents, powered by OpenAI, is now available in preview](https://aws.amazon.com/about-aws/whats-new/2026/09/bedrock-managed-agents-preview/) — published 2026-09-29T21:10:00+00:00
+  
+  <p>Developed jointly by AWS and OpenAI, Bedrock Managed Agents (BMA) is built on a customized version of&nbsp;OpenAI's Agents API engineered to be AWS-native and integrated with AWS resources.&nbsp;You can now build agents optimized for OpenAI models that run entirely inside AWS with the identities, permissions, and governance controls you already use.&nbsp;</p> <p>BMA manages how the model preserves state, selects and uses tools, executes code, and coordinates work across multiple steps and dec
+
+- [OpenAI GPT-6.1 Sol is now generally available on Amazon Bedrock](https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-1-sol-on-amazon-bedrock/) — published 2026-09-29T20:17:00+00:00
+  
+  <p>Today, AWS announces the general availability of GPT-6.1 Sol from OpenAI on Amazon Bedrock. An upgrade to GPT-6 Sol, GPT-6.1 Sol delivers exceptionally strong performance on agentic coding, computer use, and professional work. According to OpenAI, it approaches GPT-6 Astra across demanding evaluations at roughly one-fifth of the cost, giving developers more room to build and run capable agents at scale.&nbsp;The Amazon Bedrock inference engine delivers the performance, security, and reliabili
+
+- [Grok 4.7 is now available on Amazon Bedrock](https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-bedrock-grok-4-7/) — published 2026-09-28T18:29:00+00:00
+  
+  <p>Amazon Bedrock now supports SpaceXAI Grok 4.7, a frontier model built for coding, agentic tasks, and knowledge work, with US Geo and Global cross-Region inference. &nbsp;</p> <p>Grok 4.7 builds on Grok 4.6 with better mixed-document handling, more dependable repo-scale coding with planning and error recovery, and enhanced browser-use agents for form fills and portal navigation. &nbsp;</p> <p>Get started with Grok 4.7 in the<a href="https://us-east-1.console.aws.amazon.com/bedrock/home?region=
+
+
+## eventbridge
+
+- [Amazon EventBridge relaunches event buses for enterprise scale](https://aws.amazon.com/about-aws/whats-new/2026/09/eventbridge-relaunches-custom-event-buses/) — published 2026-09-24T21:00:00+00:00
+  
+  <p>Amazon EventBridge relaunches event buses with a new enhanced Custom event bus that lets you build event-driven applications that decouple teams and can scale with your organization. Create a custom event bus, share it across accounts, and now teams can publish and consume events with strict ordering, open event formats, built-in retention, and support for advanced event transformations.</p> <p>The EventBridge Custom event bus is a serverless event broker that enables you to create scalable e
+
+
+## s3
+
+- [S3 Tables increases the default table bucket quota](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WhatsNew.html) — published 2026-09-30T19:00:00+00:00
+  
+  The default quota for the number of Amazon S3 table buckets you can create per AWS Region in an account increased from 10 to 100. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-regions-quotas.html">S3 Tables Regions, endpoints, and service quotas</a>.
+
