@@ -1,0 +1,44 @@
+# AWS documentation updates - 2026-10-12
+
+Total updates: 8
+
+## bedrock
+
+- [TwelveLabs Pegasus 1.5 model now available on Amazon Bedrock](https://aws.amazon.com/about-aws/whats-new/2026/10/twelve-labs-pegasus-1-5-aws/) — published 2026-10-09T05:32:00+00:00
+  
+  <p>Amazon Bedrock now supports TwelveLabs Pegasus 1.5, a video-to-text model that generates structured, time-coded metadata from video. Until now, finding a moment in a large video library meant knowing where to look before you could ask about it. Pegasus 1.5 reads an entire video and labels what happens and when, turning footage into data your applications can query.</p> <p>You define what matters to your business, such as editorial segments, speaker changes, sports plays, or brand appearances,
+
+- [OpenAI GPT-6.1 Sol now supports Ultrafast mode on Amazon Bedrock](https://aws.amazon.com/about-aws/whats-new/2026/10/openai-gpt-sol-ultrafast-amazon/) — published 2026-10-08T19:41:00+00:00
+  
+  <p>Today, AWS announces the availability of Ultrafast mode for GPT-6.1 Sol from OpenAI on Amazon Bedrock.&nbsp;Ultrafast mode provides faster inference for workloads where speed matters most. The Amazon Bedrock inference engine delivers the performance, security, and reliability required for production workloads.</p> <p>Use GPT-6.1 Sol&nbsp;Ultrafast for latency-sensitive applications such as real-time coding assistants, interactive agents, and customer-facing experiences that require fast, high
+
+- [GLM 5.3 by Z.ai is now generally available on Amazon Bedrock](https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-glm-5-3/) — published 2026-10-05T21:42:00+00:00
+  
+  <p>Amazon Bedrock now supports GLM 5.3 from Z.ai, giving you a powerful new option for agentic coding and long-horizon software engineering work. Customers using GLM 5.3 on Amazon Bedrock have access to the latest open weight model with the AWS security and compliance posture.</p> <p>GLM 5.3 is Z.ai’s flagship model, a mixture-of-experts architecture with 753B total parameters and roughly 40B active per token, built on the same base model as GLM 5.2 with all improvements driven by scaled post-tr
+
+- [OpenAI GPT-6 Astra now supports UltraFast mode on Amazon Bedrock](https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-astra-ultrafast-on-amazon-bedrock/) — published 2026-09-30T19:00:00+00:00
+  
+  <p>&nbsp;Today, AWS announces the availability of UltraFast mode for GPT-6 Astra from OpenAI on Amazon Bedrock. Ultrafast is a premium speed tier for GPT-6 Astra built for workloads where speed matters most. According to OpenAI, Ultrafast delivers up to 6x faster inference in the API, with up to 300 tokens per second. The Amazon Bedrock inference engine delivers the performance, security, and reliability required for production workloads.</p> <p>Use GPT-6 Astra Ultrafast for latency-sensitive ap
+
+- [Amazon Bedrock Managed Agents, powered by OpenAI, is now available in preview](https://aws.amazon.com/about-aws/whats-new/2026/09/bedrock-managed-agents-preview/) — published 2026-09-29T21:10:00+00:00
+  
+  <p>Developed jointly by AWS and OpenAI, Bedrock Managed Agents (BMA) is built on a customized version of&nbsp;OpenAI's Agents API engineered to be AWS-native and integrated with AWS resources.&nbsp;You can now build agents optimized for OpenAI models that run entirely inside AWS with the identities, permissions, and governance controls you already use.&nbsp;</p> <p>BMA manages how the model preserves state, selects and uses tools, executes code, and coordinates work across multiple steps and dec
+
+- [OpenAI GPT-6.1 Sol is now generally available on Amazon Bedrock](https://aws.amazon.com/about-aws/whats-new/2026/09/openai-gpt-6-1-sol-on-amazon-bedrock/) — published 2026-09-29T20:17:00+00:00
+  
+  <p>Today, AWS announces the general availability of GPT-6.1 Sol from OpenAI on Amazon Bedrock. An upgrade to GPT-6 Sol, GPT-6.1 Sol delivers exceptionally strong performance on agentic coding, computer use, and professional work. According to OpenAI, it approaches GPT-6 Astra across demanding evaluations at roughly one-fifth of the cost, giving developers more room to build and run capable agents at scale.&nbsp;The Amazon Bedrock inference engine delivers the performance, security, and reliabili
+
+
+## s3
+
+- [S3 Tables increases the default table bucket quota](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WhatsNew.html) — published 2026-09-30T19:00:00+00:00
+  
+  The default quota for the number of Amazon S3 table buckets you can create per AWS Region in an account increased from 10 to 100. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-regions-quotas.html">S3 Tables Regions, endpoints, and service quotas</a>.
+
+
+## step-functions
+
+- [5 new AWS SDK service integrations](https://docs.aws.amazon.com/step-functions/latest/dg/awssdk-release-history.html) — published 2026-09-25T19:00:00+00:00
+  
+  Added AWS Agent Registry, AWS Agent Registry Control, AWS IAM Account Access Manager, AWS IAM Toolbox, AWS Pricing Plan Manager.
+
