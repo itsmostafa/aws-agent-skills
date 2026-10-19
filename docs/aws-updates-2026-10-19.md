@@ -1,0 +1,40 @@
+# AWS documentation updates - 2026-10-19
+
+Total updates: 7
+
+## bedrock
+
+- [Web Search on Amazon Bedrock AgentCore expands to AWS GovCloud and 3 Regions](https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-agentcore/) — published 2026-10-15T20:40:00+00:00
+  
+  <p>Web Search on Amazon Bedrock AgentCore is now available in four additional AWS Regions: US East (Ohio), US West (Oregon), Asia Pacific (Sydney), and AWS GovCloud (US-West). Web Search is a fully managed tool that provides AI agents with current grounding from the web, enabling more accurate and up-to-date responses for tasks such as research, summarization, and question answering.</p> <p>With this expansion, customers can build agents that retrieve web information closer to their applications
+
+- [Announcing consumption-based pricing for short-term memory in Amazon Bedrock AgentCore](https://aws.amazon.com/about-aws/whats-new/2026/10/agentcore-memory-consumption-based-pricing) — published 2026-10-12T16:00:00+00:00
+  
+  <p><b>Announcing consumption-based pricing for short-term memory in Amazon Bedrock AgentCore</b></p> <p>Amazon Bedrock AgentCore memory now prices short-term memory (STM) based on the data your agents ingest, retrieve, and store, replacing the previous flat rate per event. AgentCore memory gives agents in-session context through short-term memory and persistent knowledge across sessions through long-term memory. With consumption-based pricing, developers building agents that write frequent, smal
+
+- [TwelveLabs Pegasus 1.5 model now available on Amazon Bedrock](https://aws.amazon.com/about-aws/whats-new/2026/10/twelve-labs-pegasus-1-5-aws/) — published 2026-10-09T05:32:00+00:00
+  
+  <p>Amazon Bedrock now supports TwelveLabs Pegasus 1.5, a video-to-text model that generates structured, time-coded metadata from video. Until now, finding a moment in a large video library meant knowing where to look before you could ask about it. Pegasus 1.5 reads an entire video and labels what happens and when, turning footage into data your applications can query.</p> <p>You define what matters to your business, such as editorial segments, speaker changes, sports plays, or brand appearances,
+
+- [OpenAI GPT-6.1 Sol now supports Ultrafast mode on Amazon Bedrock](https://aws.amazon.com/about-aws/whats-new/2026/10/openai-gpt-sol-ultrafast-amazon/) — published 2026-10-08T19:41:00+00:00
+  
+  <p>Today, AWS announces the availability of Ultrafast mode for GPT-6.1 Sol from OpenAI on Amazon Bedrock.&nbsp;Ultrafast mode provides faster inference for workloads where speed matters most. The Amazon Bedrock inference engine delivers the performance, security, and reliability required for production workloads.</p> <p>Use GPT-6.1 Sol&nbsp;Ultrafast for latency-sensitive applications such as real-time coding assistants, interactive agents, and customer-facing experiences that require fast, high
+
+- [GLM 5.3 by Z.ai is now generally available on Amazon Bedrock](https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-glm-5-3/) — published 2026-10-05T21:42:00+00:00
+  
+  <p>Amazon Bedrock now supports GLM 5.3 from Z.ai, giving you a powerful new option for agentic coding and long-horizon software engineering work. Customers using GLM 5.3 on Amazon Bedrock have access to the latest open weight model with the AWS security and compliance posture.</p> <p>GLM 5.3 is Z.ai’s flagship model, a mixture-of-experts architecture with 753B total parameters and roughly 40B active per token, built on the same base model as GLM 5.2 with all improvements driven by scaled post-tr
+
+
+## s3
+
+- [S3 Tables increases the default table bucket quota](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WhatsNew.html) — published 2026-09-30T19:00:00+00:00
+  
+  The default quota for the number of Amazon S3 table buckets you can create per AWS Region in an account increased from 10 to 100. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-regions-quotas.html">S3 Tables Regions, endpoints, and service quotas</a>.
+
+
+## step-functions
+
+- [5 new AWS SDK service integrations](https://docs.aws.amazon.com/step-functions/latest/dg/awssdk-release-history.html) — published 2026-09-25T19:00:00+00:00
+  
+  Added AWS Agent Registry, AWS Agent Registry Control, AWS IAM Account Access Manager, AWS IAM Toolbox, AWS Pricing Plan Manager.
+
