@@ -1,95 +1,44 @@
 [
   {
-    "service": "s3",
-    "title": "S3 Tables increases the default table bucket quota",
-    "description": "The default quota for the number of Amazon S3 table buckets you can create per AWS Region in an account increased from 10 to 100. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-regions-quotas.html\">S3 Tables Regions, endpoints, and service quotas</a>.",
-    "link": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/WhatsNew.html",
-    "published": "2026-09-30T19:00:00+00:00",
+    "service": "dynamodb",
+    "title": "DynamoDB bulk put items is now available",
+    "description": "You can now use bulk put items to load data from Amazon S3 into an existing DynamoDB\n                    table without consuming read or write capacity on that table. Bulk put items\n                    offers two performance tiers, Standard and Accelerated, to match your workload\n                    requirements. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BulkPutItems.HowItWorks.html\">DynamoDB bulk put items: how it works</a>.",
+    "link": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DocumentHistory.html",
+    "published": "2026-11-05T19:00:00+00:00",
     "significant": true
   },
   {
-    "service": "ec2",
-    "title": "New ImdsV1Enabled CloudWatch metric",
-    "description": "Amazon EC2 now publishes the <code class=\"code\">ImdsV1Enabled</code> CloudWatch metric, which\n\t\t\t\t\tindicates whether an instance is configured to allow IMDSv1, even when no\n\t\t\t\t\tIMDSv1 calls are being made. Use this metric to find instances that still\n\t\t\t\t\tallow IMDSv1 and to track your migration to IMDSv2 across your\n\t\t\t\t\taccounts and Regions.",
-    "link": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.html#ec2-cloudwatch-metrics",
-    "published": "2026-10-22T19:00:00+00:00",
-    "significant": true
-  },
-  {
-    "service": "cloudwatch",
-    "title": "CloudWatchFullAccessV2 policy update",
-    "description": "To let you create log groups that are encrypted with your own keys, CloudWatch added the\n            <code class=\"code\">kms:DescribeKey</code> permission to the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/managed-policies-cloudwatch.html#managed-policies-cloudwatch-CloudWatchFullAccessV2\">CloudWatchFullAccessV2</a> managed policy. CloudWatch Logs requires this permission from the\n          caller to create a log group with a customer managed AWS KMS key, or to associa",
-    "link": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/DocumentHistory.html",
-    "published": "2026-10-20T19:00:00+00:00",
-    "significant": true
-  },
-  {
-    "service": "step-functions",
-    "title": "3 new AWS SDK service integrations",
-    "description": "Added AWS Network Security Manager, Amazon CloudWatch Omni, Amazon EventBridge V2.",
-    "link": "https://docs.aws.amazon.com/step-functions/latest/dg/awssdk-release-history.html",
-    "published": "2026-10-14T19:00:00+00:00",
-    "significant": true
-  },
-  {
-    "service": "step-functions",
-    "title": "5 new AWS SDK service integrations",
-    "description": "Added AWS Agent Registry, AWS Agent Registry Control, AWS IAM Account Access Manager, AWS IAM Toolbox, AWS Pricing Plan Manager.",
-    "link": "https://docs.aws.amazon.com/step-functions/latest/dg/awssdk-release-history.html",
-    "published": "2026-09-25T19:00:00+00:00",
+    "service": "rds",
+    "title": "Amazon RDS reports snapshot storage charges at per-snapshot granularity",
+    "description": "Amazon RDS now attributes snapshot storage charges to each snapshot individually\n\t\t\t\t\tin AWS Cost Explorer and your AWS Cost and Usage Report. The\n\t\t\t\t\t<code class=\"code\">ResourceId</code> field shows the Amazon RDS snapshot ARN, or the Amazon RDS cluster\n\t\t\t\t\tsnapshot ARN for Multi-AZ DB cluster snapshots. Your pricing and overall charges\n\t\t\t\t\tare unchanged. To group snapshot charges by instance, apply cost allocation tags to\n\t\t\t\t\tyour snapshots. For more information, see <a href=\"https://docs.",
+    "link": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/WhatsNew.html",
+    "published": "2026-11-01T19:00:00+00:00",
     "significant": true
   },
   {
     "service": "bedrock",
-    "title": "Web Search on Amazon Bedrock now supports domain filtering and user location controls",
-    "description": "<p>Web Search on&nbsp;Amazon Bedrock now supports two new controls that give you more precision over the results that ground a model's response: domain filtering and user location. Both are configured directly on the web_search tool in your existing OpenAI Responses API request.</p> \n<p>With domain filtering, you can restrict Web Search results to a set of domains you choose. Using the filters parameter, you specify up to 100 allowed_domains to limit results to trusted sources, or up to 100 bloc",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-web-search-domain-user-location/",
-    "published": "2026-10-23T21:04:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "cognito",
-    "title": "Amazon Cognito extends multi-Region replication to AWS GovCloud (US) Regions",
-    "description": "<p>Amazon Cognito multi-Region replication (MRR) now supports AWS GovCloud (US) Regions, extending the resilience benefits of MRR to more workloads. MRR lets you synchronize user and machine identity data, including credentials, user pool configurations, and federation setups, to a secondary user pool in a standby Region you designate, in near real-time. With user data in the standby Region, you can redirect traffic and keep authentication available if there is a disruption in your primary Regio",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/cognito-multi-region-us-govcloud/",
-    "published": "2026-10-21T17:00:00+00:00",
+    "title": "Kimi K3.1 Pro (Highspeed) now available on Amazon Bedrock",
+    "description": "<p>Today, Kimi K3.1 Pro from Moonshot AI is available on Amazon Bedrock, expanding our open weight model portfolio with the security and governance that customers rely on. Customers using Amazon Bedrock can now run agentic use cases such as coding and document processing on Kimi K3.1 Pro (Highspeed), which delivers high output tokens per second (OTPS) for faster, more responsive results.</p> \n<p>According to Moonshot AI, Kimi K3.1 Pro is an open-weight, natively multimodal agentic model with a 1",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/moonshot-ai-kimi-k3-1-pro-on-amazon-bedrock",
+    "published": "2026-11-06T22:47:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "bedrock",
-    "title": "Amazon Bedrock Guardrails now supports Standard tier for contextual grounding checks",
-    "description": "<p>Amazon Bedrock Guardrails now offers a Standard tier for contextual grounding checks, which detect and filter hallucinations by checking whether a model response is grounded in your reference source and relevant to the user's query. The Standard tier is more robust than the Classic tier. It supports responses that include reasoning or conversational content, scores differently worded responses with the same meaning more consistently, and provides more comprehensive language support, matching ",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-guardrails-grounding-standard/",
-    "published": "2026-10-20T08:00:00+00:00",
+    "title": "Announcing Web Answer on Amazon Bedrock AgentCore",
+    "description": "<p>Today, we are announcing the general availability of Web Answer on Amazon Bedrock AgentCore. Web Answer is a managed tool that returns a synthesized, grounded, cited answer to a natural-language question in a single call, so agent builders can attach it to an agent and get back a finished answer grounded in current web sources, without building and maintaining their own search, retrieve, synthesis, and citation pipeline.&nbsp;</p> \n<p>Web Answer builds on Web Search on Amazon Bedrock AgentCor",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/web-answer-amazon-bedrock/",
+    "published": "2026-11-05T20:56:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "bedrock",
-    "title": "Amazon Bedrock Advanced Prompt Optimization now supports prompt shortening",
-    "description": "<p>Amazon Bedrock Advanced Prompt Optimization now supports prompt shortening, an optional setting that reduces the length of your prompt while maintaining or improving your evaluation scores. Advanced Prompt Optimization optimizes prompts for any model on Amazon Bedrock against your own evaluation criteria. Until now, optimization focused on quality alone. Optimized prompts were often longer than the original. Longer prompts raise input token costs and can increase time to first token, which ma",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-prompt-optimization-shortening/",
-    "published": "2026-10-20T08:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "bedrock",
-    "title": "Grok 4.7 is now available on Amazon Bedrock in AWS GovCloud (US)",
-    "description": "<p>Amazon Bedrock now supports SpaceXAI Grok 4.7, a frontier model built for coding, agentic tasks, and knowledge work in AWS GovCloud (US).</p> \n<p>Grok 4.7 builds on Grok 4.6 with better mixed-document handling, more dependable repo-scale coding with planning and error recovery, and enhanced browser-use agents for form fills and portal navigation. &nbsp;</p> \n<p>Get started with Grok 4.7 in the<a href=\"https://console.amazonaws-us-gov.com/bedrock/\"> Amazon Bedrock console</a> or programmatical",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-grok-4-7-govcloud/",
-    "published": "2026-10-19T13:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "bedrock",
-    "title": "Web Search on Amazon Bedrock AgentCore expands to AWS GovCloud and 3 Regions",
-    "description": "<p>Web Search on Amazon Bedrock AgentCore is now available in four additional AWS Regions: US East (Ohio), US West (Oregon), Asia Pacific (Sydney), and AWS GovCloud (US-West). Web Search is a fully managed tool that provides AI agents with current grounding from the web, enabling more accurate and up-to-date responses for tasks such as research, summarization, and question answering.</p> \n<p>With this expansion, customers can build agents that retrieve web information closer to their application",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-agentcore/",
-    "published": "2026-10-15T20:40:00+00:00",
+    "title": "Daybreak Red from OpenAI now available to eligible customers on Amazon Bedrock in AWS GovCloud (US-East)",
+    "description": "<p>Security teams need powerful tools to find vulnerabilities, test exploits, and build defenses. Daybreak Red from OpenAI is now available to eligible customers on Amazon Bedrock in AWS GovCloud (US-East), bringing advanced AI to this work.</p> \n<p>&nbsp;</p> \n<p>Part of OpenAI\u2019s Daybreak cyber defense initiative, Daybreak Red: GPT-5.6 Cyber is built for authorized vulnerability research, exploit reproduction, and mitigation development. It gives verified defenders more room to investigate comp",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/openai-daybreak-red-govcloud-east/",
+    "published": "2026-10-30T18:20:00+00:00",
     "significant": true,
     "source": "whats-new"
   }
