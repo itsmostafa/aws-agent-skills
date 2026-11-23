@@ -1,95 +1,150 @@
 [
   {
-    "service": "s3",
-    "title": "S3 Tables increases the default table bucket quota",
-    "description": "The default quota for the number of Amazon S3 table buckets you can create per AWS Region in an account increased from 10 to 100. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-tables-regions-quotas.html\">S3 Tables Regions, endpoints, and service quotas</a>.",
-    "link": "https://docs.aws.amazon.com/AmazonS3/latest/userguide/WhatsNew.html",
-    "published": "2026-09-30T19:00:00+00:00",
+    "service": "lambda",
+    "title": "Updated durable functions read quotas",
+    "description": "Updated documentation for the read API request quotas for Lambda durable functions. For more information, see <a href=\"https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html\">Lambda quotas</a>.",
+    "link": "https://docs.aws.amazon.com/lambda/latest/dg/lambda-releases.html",
+    "published": "2026-11-04T19:00:00+00:00",
+    "significant": true
+  },
+  {
+    "service": "dynamodb",
+    "title": "Auto scaling quota guidance",
+    "description": "Added information about how throughput quotas affect DynamoDB auto scaling, so you can set table and index capacity within your per-table and account-level quotas. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html\">Managing throughput capacity automatically with DynamoDB auto scaling</a>.",
+    "link": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DocumentHistory.html",
+    "published": "2026-11-17T19:00:00+00:00",
+    "significant": true
+  },
+  {
+    "service": "dynamodb",
+    "title": "Secondary index quotas",
+    "description": "Added information about secondary index quotas, including the maximum base table size for creating a global secondary index without additional allowlisting. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ServiceQuotas.html\">Quotas in Amazon DynamoDB</a>.",
+    "link": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DocumentHistory.html",
+    "published": "2026-11-11T19:00:00+00:00",
+    "significant": true
+  },
+  {
+    "service": "dynamodb",
+    "title": "DynamoDB bulk put items is now available",
+    "description": "You can now use bulk put items to load data from Amazon S3 into an existing DynamoDB\n                    table without consuming read or write capacity on that table. Bulk put items\n                    offers two performance tiers, Standard and Accelerated, to match your workload\n                    requirements. For more information, see <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BulkPutItems.HowItWorks.html\">DynamoDB bulk put items: how it works</a>.",
+    "link": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DocumentHistory.html",
+    "published": "2026-11-05T19:00:00+00:00",
+    "significant": true
+  },
+  {
+    "service": "dynamodb",
+    "title": "Bulk put items CloudTrail events",
+    "description": "Added information about CloudTrail logging for bulk put items operations, which\n                    records the <code class=\"code\">StartBulkPutItems</code> management event and\n                        <code class=\"code\">BulkPutItems</code> data service events. For more information, see\n                        <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/BulkPutItems.Considerations.html\">Bulk put items considerations, quotas, and permissions</a>.",
+    "link": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DocumentHistory.html",
+    "published": "2026-11-05T19:00:00+00:00",
+    "significant": true
+  },
+  {
+    "service": "dynamodb",
+    "title": "Increased vector index quota",
+    "description": "Updated documentation for the per-table vector index quota, which you can now\n                    increase to a maximum of 20 vector indexes per table. For more information, see\n                        <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ServiceQuotas.html\">Quotas in\n                        Amazon DynamoDB</a>, <a href=\"https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ddb-strands-storage.html\">Using\n                        DynamoDB as a stora",
+    "link": "https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DocumentHistory.html",
+    "published": "2026-10-26T19:00:00+00:00",
+    "significant": true
+  },
+  {
+    "service": "api-gateway",
+    "title": "API Portal",
+    "description": "API Portal discovers the APIs running behind API Gateway REST APIs, Application Load Balancer, and CloudFront across your AWS account or your\n            organization in AWS Organizations, evaluates their security posture, and lets you publish documentation portals for them.\n            For more information, see <a href=\"https://docs.aws.amazon.com/apigateway/latest/developerguide/apiportal.html\">API Portal</a>.",
+    "link": "https://docs.aws.amazon.com/apigateway/latest/developerguide/history.html",
+    "published": "2026-11-23T19:00:00+00:00",
     "significant": true
   },
   {
     "service": "ec2",
-    "title": "New ImdsV1Enabled CloudWatch metric",
-    "description": "Amazon EC2 now publishes the <code class=\"code\">ImdsV1Enabled</code> CloudWatch metric, which\n\t\t\t\t\tindicates whether an instance is configured to allow IMDSv1, even when no\n\t\t\t\t\tIMDSv1 calls are being made. Use this metric to find instances that still\n\t\t\t\t\tallow IMDSv1 and to track your migration to IMDSv2 across your\n\t\t\t\t\taccounts and Regions.",
-    "link": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.html#ec2-cloudwatch-metrics",
-    "published": "2026-10-22T19:00:00+00:00",
+    "title": "T9g burstable performance instances",
+    "description": "Added documentation for T9g burstable performance instances, the latest-generation AWS Graviton5-based burstable instances. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable performance instances</a>, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-credits-baseline-concepts.html\">Key concepts for burstable performance instances</a>, <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGu",
+    "link": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/DocumentHistory.html",
+    "published": "2026-11-20T19:00:00+00:00",
+    "significant": true
+  },
+  {
+    "service": "ec2",
+    "title": "Capacity Manager supportability checks",
+    "description": "Updated documentation for Amazon EC2 Capacity Manager real-time supportability\n\t\t\t\t\tchecks, fulfillment metrics, and capacity check quotas, including the\n\t\t\t\t\t\t<code class=\"code\">--instance-requirements-with-metadata</code> attribute input. For more\n\t\t\t\t\tinformation, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-manager.html\">EC2 Capacity\n\t\t\t\t\t\tManager</a>.",
+    "link": "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/DocumentHistory.html",
+    "published": "2026-10-28T19:00:00+00:00",
+    "significant": true
+  },
+  {
+    "service": "cloudwatch",
+    "title": "Increased maximum PromQL query time range",
+    "description": "CloudWatch increased the maximum time range for a PromQL query from 7 days to 30 days for\n          all accounts. The limit description now explains how the time range is measured. For\n          more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-PromQL.html#CloudWatch-PromQL-Limits\">PromQL limits and restrictions</a>.",
+    "link": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/DocumentHistory.html",
+    "published": "2026-11-19T19:00:00+00:00",
     "significant": true
   },
   {
     "service": "cloudwatch",
     "title": "CloudWatchFullAccessV2 policy update",
-    "description": "To let you create log groups that are encrypted with your own keys, CloudWatch added the\n            <code class=\"code\">kms:DescribeKey</code> permission to the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/managed-policies-cloudwatch.html#managed-policies-cloudwatch-CloudWatchFullAccessV2\">CloudWatchFullAccessV2</a> managed policy. CloudWatch Logs requires this permission from the\n          caller to create a log group with a customer managed AWS KMS key, or to associa",
+    "description": "CloudWatch updated the <code class=\"code\">kms:DescribeKey</code> permission in the <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/managed-policies-cloudwatch.html#managed-policies-cloudwatch-CloudWatchFullAccessV2\">CloudWatchFullAccessV2</a> managed policy so that you can also use it for requests\n          that CloudWatch makes on your behalf, in addition to requests from CloudWatch Logs. The permission still\n          applies only to keys in your own account. For more\n ",
     "link": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/DocumentHistory.html",
-    "published": "2026-10-20T19:00:00+00:00",
+    "published": "2026-11-18T19:00:00+00:00",
     "significant": true
   },
   {
-    "service": "step-functions",
-    "title": "3 new AWS SDK service integrations",
-    "description": "Added AWS Network Security Manager, Amazon CloudWatch Omni, Amazon EventBridge V2.",
-    "link": "https://docs.aws.amazon.com/step-functions/latest/dg/awssdk-release-history.html",
-    "published": "2026-10-14T19:00:00+00:00",
+    "service": "cloudwatch",
+    "title": "OTel Container Insights changes in add-on version 7.0.0",
+    "description": "Version 7.0.0 of the Amazon CloudWatch Observability Amazon EKS add-on and Helm chart removes\n          duplicate series, deprecated attributes, and some generated labels from OTel Container\n          Insights metrics. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/container-insights-eks-otel.html#container-insights-eks-otel-upgrade-v7\">Upgrading OTel Container Insights to version 7.0.0</a>.",
+    "link": "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/DocumentHistory.html",
+    "published": "2026-11-12T19:00:00+00:00",
     "significant": true
   },
   {
-    "service": "step-functions",
-    "title": "5 new AWS SDK service integrations",
-    "description": "Added AWS Agent Registry, AWS Agent Registry Control, AWS IAM Account Access Manager, AWS IAM Toolbox, AWS Pricing Plan Manager.",
-    "link": "https://docs.aws.amazon.com/step-functions/latest/dg/awssdk-release-history.html",
-    "published": "2026-09-25T19:00:00+00:00",
+    "service": "rds",
+    "title": "Amazon RDS reports snapshot storage charges at per-snapshot granularity",
+    "description": "Amazon RDS now attributes snapshot storage charges to each snapshot individually\n\t\t\t\t\tin AWS Cost Explorer and your AWS Cost and Usage Report. The\n\t\t\t\t\t<code class=\"code\">ResourceId</code> field shows the Amazon RDS snapshot ARN, or the Amazon RDS cluster\n\t\t\t\t\tsnapshot ARN for Multi-AZ DB cluster snapshots. Your pricing and overall charges\n\t\t\t\t\tare unchanged. To group snapshot charges by instance, apply cost allocation tags to\n\t\t\t\t\tyour snapshots. For more information, see <a href=\"https://docs.",
+    "link": "https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/WhatsNew.html",
+    "published": "2026-11-01T19:00:00+00:00",
     "significant": true
   },
   {
     "service": "bedrock",
-    "title": "Web Search on Amazon Bedrock now supports domain filtering and user location controls",
-    "description": "<p>Web Search on&nbsp;Amazon Bedrock now supports two new controls that give you more precision over the results that ground a model's response: domain filtering and user location. Both are configured directly on the web_search tool in your existing OpenAI Responses API request.</p> \n<p>With domain filtering, you can restrict Web Search results to a set of domains you choose. Using the filters parameter, you specify up to 100 allowed_domains to limit results to trusted sources, or up to 100 bloc",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-web-search-domain-user-location/",
-    "published": "2026-10-23T21:04:00+00:00",
+    "title": "Web Search on Amazon Bedrock expands language support and country-aware search",
+    "description": "<p>Web Search on Amazon Bedrock, the tool that grounds AI agents and applications in cited, current web information, now supports five new languages, plus non-US English, on Amazon Bedrock AgentCore and Amazon Bedrock: Spanish, French, German, Italian, and Japanese.&nbsp; Agents serving users in these languages get results that draw on local-language sources.</p> \n<p>We are also introducing a new optional country field that biases results toward sources from a specific country - just pass an ISO",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/web-search-amazon-bedrock/",
+    "published": "2026-11-21T00:17:00+00:00",
+    "significant": true,
+    "source": "whats-new"
+  },
+  {
+    "service": "eventbridge",
+    "title": "AWS Lambda now publishes Event Function state change events to Amazon EventBridge",
+    "description": "<p><a href=\"https://aws.amazon.com/lambda/\" rel=\"noopener noreferrer\" target=\"_blank\">AWS Lambda</a>&nbsp;now publishes Event Function state change events to <a href=\"https://aws.amazon.com/eventbridge/\" rel=\"noopener noreferrer\" target=\"_blank\">Amazon EventBridge</a>. Lambda emits an event each time an Event Function version changes state because of a customer action, such as creating, updating, publishing, or deleting a function. These events help platform and DevOps teams to trigger automatio",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/aws-lambda-function-state-events/",
+    "published": "2026-11-20T22:40:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
     "service": "cognito",
-    "title": "Amazon Cognito extends multi-Region replication to AWS GovCloud (US) Regions",
-    "description": "<p>Amazon Cognito multi-Region replication (MRR) now supports AWS GovCloud (US) Regions, extending the resilience benefits of MRR to more workloads. MRR lets you synchronize user and machine identity data, including credentials, user pool configurations, and federation setups, to a secondary user pool in a standby Region you designate, in near real-time. With user data in the standby Region, you can redirect traffic and keep authentication available if there is a disruption in your primary Regio",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/cognito-multi-region-us-govcloud/",
-    "published": "2026-10-21T17:00:00+00:00",
+    "title": "Amazon Cognito extends multi-Region replication to additional AWS Regions",
+    "description": "<p><a href=\"https://aws.amazon.com/cognito/\">Amazon Cognito</a> multi-Region replication (MRR) now supports additional AWS Regions, extending the resilience benefits of MRR to more workloads. Amazon Cognito helps you implement secure sign-in and access control for users, AI agents, and microservices in minutes, and MRR lets you synchronize user and machine identity data, including credentials, user pool configurations, and federation setups, to a secondary user pool in a standby Region you desig",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/cognito-mrr-opt-in-regions/",
+    "published": "2026-11-20T22:00:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
-    "service": "bedrock",
-    "title": "Amazon Bedrock Guardrails now supports Standard tier for contextual grounding checks",
-    "description": "<p>Amazon Bedrock Guardrails now offers a Standard tier for contextual grounding checks, which detect and filter hallucinations by checking whether a model response is grounded in your reference source and relevant to the user's query. The Standard tier is more robust than the Classic tier. It supports responses that include reasoning or conversational content, scores differently worded responses with the same meaning more consistently, and provides more comprehensive language support, matching ",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-guardrails-grounding-standard/",
-    "published": "2026-10-20T08:00:00+00:00",
+    "service": "cloudformation",
+    "title": "AWS CloudFormation Service-Managed StackSets adds custom execution roles with nested stacks support",
+    "description": "<p><a href=\"https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html\" rel=\"noopener noreferrer\" target=\"_blank\">AWS CloudFormation StackSets</a> now supports custom execution roles for service-managed stack sets, which enables you to scope the permissions StackSets uses in each target AWS account. StackSets deploys the same infrastructure, such as networking and security settings, across thousands of accounts and Regions in one operation. With a custom execution rol",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/stacksets-custom-execution-roles/",
+    "published": "2026-11-20T17:45:00+00:00",
     "significant": true,
     "source": "whats-new"
   },
   {
-    "service": "bedrock",
-    "title": "Amazon Bedrock Advanced Prompt Optimization now supports prompt shortening",
-    "description": "<p>Amazon Bedrock Advanced Prompt Optimization now supports prompt shortening, an optional setting that reduces the length of your prompt while maintaining or improving your evaluation scores. Advanced Prompt Optimization optimizes prompts for any model on Amazon Bedrock against your own evaluation criteria. Until now, optimization focused on quality alone. Optimized prompts were often longer than the original. Longer prompts raise input token costs and can increase time to first token, which ma",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/bedrock-prompt-optimization-shortening/",
-    "published": "2026-10-20T08:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "bedrock",
-    "title": "Grok 4.7 is now available on Amazon Bedrock in AWS GovCloud (US)",
-    "description": "<p>Amazon Bedrock now supports SpaceXAI Grok 4.7, a frontier model built for coding, agentic tasks, and knowledge work in AWS GovCloud (US).</p> \n<p>Grok 4.7 builds on Grok 4.6 with better mixed-document handling, more dependable repo-scale coding with planning and error recovery, and enhanced browser-use agents for form fills and portal navigation. &nbsp;</p> \n<p>Get started with Grok 4.7 in the<a href=\"https://console.amazonaws-us-gov.com/bedrock/\"> Amazon Bedrock console</a> or programmatical",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-grok-4-7-govcloud/",
-    "published": "2026-10-19T13:00:00+00:00",
-    "significant": true,
-    "source": "whats-new"
-  },
-  {
-    "service": "bedrock",
-    "title": "Web Search on Amazon Bedrock AgentCore expands to AWS GovCloud and 3 Regions",
-    "description": "<p>Web Search on Amazon Bedrock AgentCore is now available in four additional AWS Regions: US East (Ohio), US West (Oregon), Asia Pacific (Sydney), and AWS GovCloud (US-West). Web Search is a fully managed tool that provides AI agents with current grounding from the web, enabling more accurate and up-to-date responses for tasks such as research, summarization, and question answering.</p> \n<p>With this expansion, customers can build agents that retrieve web information closer to their application",
-    "link": "https://aws.amazon.com/about-aws/whats-new/2026/10/amazon-bedrock-agentcore/",
-    "published": "2026-10-15T20:40:00+00:00",
+    "service": "cloudformation",
+    "title": "AWS CloudFormation increases the default stacks per account quota to 300,000",
+    "description": "<p>AWS CloudFormation now supports up to 300,000 stacks in each AWS account and Region by default (previously 2,000), which enables you to add stacks as your workloads grow without requesting a quota increase. CloudFormation manages related AWS resources as a stack that you create, update, and delete as one unit. Teams that deploy a separate stack for each customer, environment, or developer can now scale those patterns within a single account.</p> \n<p>A higher default quota allows you to keep g",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/11/cloudformation-stacks-per-account-quota/",
+    "published": "2026-11-20T12:35:00+00:00",
     "significant": true,
     "source": "whats-new"
   }
